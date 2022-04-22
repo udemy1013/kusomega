@@ -2,12 +2,12 @@ import { Feed } from "./components/Feed";
 import { Rightbar } from "./components/Rightbar";
 import { Sidebar } from "./components/Sidebar";
 import { Box, Stack } from "@mui/material";
-import { Navvar } from "./components/Navvar";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
     <Box>
-      <Navvar />
+      <Navbar />
       <Stack direction="row" spacing={2} justifyContent="center">
         <Sidebar />
         <Feed />
