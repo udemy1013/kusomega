@@ -1,21 +1,42 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Stack,  createTheme } from "@mui/material";
 import { Navbar } from "./components/Navbar";
-import Main from "./components/Main";
+import Home from "./components/Home";
+import About from "./components/About";
+import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
+
+const theme2 = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 1500,
+      lg: 1800,
+      xl: 1936,
+    },
+  },
+});
 
 function App() {
   return (
-    <Box
-      sx={{
-        backgroundColor: "#FCF9ED",
-        height: "100%",
-        backgroundImage:
-          "url('https://s7.gifyu.com/images/1f48fb6bd0b2258f7.gif')",
-        backgroundSize: "cover",
-      }}
-    >
-      <Navbar />
-    </Box>
+
+    <Routes>
+      <Route path="/" element={<LayoutsWithNavbar />}>
+        <Route path="/" element={<Home/>} />
+        <Route path="/About" element={<About/>}/>
+      </Route>
+    </Routes>
   );
+
+    function LayoutsWithNavbar(){
+      return(
+        <>
+        <Navbar />
+        <Outlet />
+        </>
+      )
+    }
 }
+
+
 
 export default App;

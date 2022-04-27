@@ -3,9 +3,9 @@ import {
   AppBar,
   Avatar,
   Box,
+  createTheme,
   InputBase,
   Link,
-  Menu,
   MenuItem,
   styled,
   SvgIcon,
@@ -17,14 +17,17 @@ import {
   Instagram,
   SocialDistance,
   Twitter,
+  Menu,
 } from "@mui/icons-material";
-import "../css/SvgIcon.css";
+import "../css/style.css";
 import { style } from "@mui/system";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
 });
+
+
 
 const StyledLink = styled(Link)(({ theme }) => ({
   padding: "5px 10px",
@@ -33,15 +36,28 @@ const StyledLink = styled(Link)(({ theme }) => ({
   textDecoration: "none",
   color: "#2d2d2d",
   [theme.breakpoints.down("md")]: {
-    display: "none",
+     display: "none",
+
   },
 }));
+
+
 
 const LinkTypography = styled(Typography)({
   fontSize: 12,
 });
 
-const Icons = styled(Box)(({ theme }) => ({
+const MenuDesktop = styled(Box)(({ theme }) => ({
+  display: "none",
+  alignItems: "center",
+  color: "black",
+  gap: "20px",
+  [theme.breakpoints.up("sm")]: {
+    display: "flex",
+  },
+}));
+
+const MenuMobile = styled(Box)(({ theme }) => ({
   display: "none",
   alignItems: "center",
   color: "black",
@@ -63,18 +79,14 @@ export const Navbar = () => {
       sx={{ background: "transparent", boxShadow: "none" }}
     >
       <StyledToolbar>
-        <Typography
-          variant="h6"
-          color="black"
-          sx={{ display: { xs: "none", sm: "block" } }}
-        >
-          Kusomegane Friends
-        </Typography>
+        <StyledLink href="" className="noBG">
+          <img src="https://i.imgur.com/KrvCmxT.png" width={80} alt="Logo"/>
+        </StyledLink>
 
-        <Icons>
-          <StyledLink href="#">
+        <MenuDesktop className="md-None">
+          <StyledLink className="mdNone" href="About">
             <LinkTypography>Kusomeganeとは</LinkTypography>
-          </StyledLink>
+            </StyledLink>
           <StyledLink href="#">
             <LinkTypography>ギャラリー</LinkTypography>
           </StyledLink>
@@ -92,6 +104,7 @@ export const Navbar = () => {
           </StyledLink>
           <StyledLink sx={{ padding: "2px 10px" }} href="#">
             <StyledIcon sx={{ height: 18, paddingTop: "2px" }}>
+              
               <svg
                 id="レイヤー_1"
                 data-name="レイヤー 1"
@@ -131,26 +144,11 @@ export const Navbar = () => {
           <StyledLink href="#">
             <LinkTypography>Language</LinkTypography>
           </StyledLink>
-        </Icons>
+        </MenuDesktop>
+        <MenuMobile className="md-Block">
+          <Menu/>
+        </MenuMobile>
       </StyledToolbar>
-      <Menu
-        id="demo-positioned-menu"
-        aria-labelledby="demo-positioned-button"
-        open={open}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        onClose={(e) => setOpen(false)}
-      >
-        <MenuItem>Profile</MenuItem>
-        <MenuItem>My account</MenuItem>
-        <MenuItem>Logout</MenuItem>
-      </Menu>
     </AppBar>
   );
 };
