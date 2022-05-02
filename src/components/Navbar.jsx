@@ -1,50 +1,33 @@
 import React, { useState } from "react";
 import {
   AppBar,
-  Avatar,
   Box,
-  createTheme,
-  InputBase,
   Link,
-  MenuItem,
   styled,
   SvgIcon,
   Toolbar,
   Typography,
 } from "@mui/material";
-import {
-  Android,
-  Instagram,
-  SocialDistance,
-  Twitter,
-  Menu,
-} from "@mui/icons-material";
+import { Instagram, Twitter, Menu } from "@mui/icons-material";
 import "../css/style.css";
-import { style } from "@mui/system";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
 });
 
-
-
 const StyledLink = styled(Link)(({ theme }) => ({
-  padding: "5px 10px",
-  backgroundColor: "white",
   borderRadius: 5,
   textDecoration: "none",
   color: "#2d2d2d",
   [theme.breakpoints.down("md")]: {
-     display: "none",
-
+    display: "none",
   },
 }));
 
-
-
 const LinkTypography = styled(Typography)({
   fontSize: 12,
+  fontFamily: "Dela Gothic One",
 });
 
 const MenuDesktop = styled(Box)(({ theme }) => ({
@@ -79,14 +62,14 @@ export const Navbar = () => {
       sx={{ background: "transparent", boxShadow: "none" }}
     >
       <StyledToolbar>
-        <StyledLink href="" className="noBG">
-          <img src="https://i.imgur.com/KrvCmxT.png" width={80} alt="Logo"/>
+        <StyledLink href="/" className="noBG">
+          <img src="https://i.imgur.com/KrvCmxT.png" width={80} alt="Logo" />
         </StyledLink>
 
         <MenuDesktop className="md-None">
           <StyledLink className="mdNone" href="About">
             <LinkTypography>Kusomeganeとは</LinkTypography>
-            </StyledLink>
+          </StyledLink>
           <StyledLink href="#">
             <LinkTypography>ギャラリー</LinkTypography>
           </StyledLink>
@@ -104,7 +87,6 @@ export const Navbar = () => {
           </StyledLink>
           <StyledLink sx={{ padding: "2px 10px" }} href="#">
             <StyledIcon sx={{ height: 18, paddingTop: "2px" }}>
-              
               <svg
                 id="レイヤー_1"
                 data-name="レイヤー 1"
@@ -146,7 +128,7 @@ export const Navbar = () => {
           </StyledLink>
         </MenuDesktop>
         <MenuMobile className="md-Block">
-          <Menu/>
+          <Menu />
         </MenuMobile>
       </StyledToolbar>
     </AppBar>
