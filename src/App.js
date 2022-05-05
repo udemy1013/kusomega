@@ -1,4 +1,4 @@
-import { Box, Stack,  createTheme } from "@mui/material";
+import { Box, Stack, createTheme } from "@mui/material";
 import { Navbar } from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -18,25 +18,22 @@ const theme2 = createTheme({
 
 function App() {
   return (
-
     <Routes>
       <Route path="/" element={<LayoutsWithNavbar />}>
-        <Route path="/" element={<Home/>} />
-        <Route path="/About" element={<About/>}/>
+        <Route path="/" element={<Home />} xs={{ margin: "auto !important" }} />
+        <Route path="/About" element={<About />} />
       </Route>
     </Routes>
   );
 
-    function LayoutsWithNavbar(){
-      return(
-        <>
+  function LayoutsWithNavbar() {
+    return (
+      <>
         <Navbar />
         <Outlet />
-        </>
-      )
-    }
+      </>
+    );
+  }
 }
-
-
 
 export default App;

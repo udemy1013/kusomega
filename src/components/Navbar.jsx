@@ -20,14 +20,12 @@ const StyledLink = styled(Link)(({ theme }) => ({
   borderRadius: 5,
   textDecoration: "none",
   color: "#2d2d2d",
-  [theme.breakpoints.down("md")]: {
-    display: "none",
-  },
 }));
 
 const LinkTypography = styled(Typography)({
-  fontSize: 12,
-  fontFamily: "Dela Gothic One",
+  fontSize: 16,
+  fontFamily: "Noto Sans JP",
+  fontWeight: "700",
 });
 
 const MenuDesktop = styled(Box)(({ theme }) => ({
@@ -58,10 +56,14 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <AppBar
-      position="sticky"
-      sx={{ background: "transparent", boxShadow: "none" }}
+      position="absolute"
+      sx={{
+        background: "transparent",
+        boxShadow: "none",
+        height: "0px",
+      }}
     >
-      <StyledToolbar>
+      <StyledToolbar sx={{ paddingleft: "48px" }}>
         <StyledLink href="/" className="noBG">
           <img src="https://i.imgur.com/KrvCmxT.png" width={80} alt="Logo" />
         </StyledLink>
