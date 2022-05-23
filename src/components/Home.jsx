@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, styled, Link, SvgIcon } from "@mui/material";
 import "../css/style.css";
 import { Instagram, Twitter, Menu } from "@mui/icons-material";
+import { motion } from "framer-motion";
 
 const classes = "backgroundImage responsiveMargin";
 
@@ -21,7 +22,11 @@ function Home() {
         backgroundSize: "cover",
         overflow: "hidden",
       }}
+      component={motion.div}
       className={classes}
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
     >
       <Grid className="md-None" item xs={12}>
         <img

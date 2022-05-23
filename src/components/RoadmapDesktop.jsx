@@ -28,21 +28,18 @@ const theme = createTheme({
   },
   typography: {
     h1: {
-      fontSize: "3.5vw",
+      fontSize: "48px",
       fontFamily: "Dela Gothic One",
       fontWeight: 500,
-      lineHeight: "3.5vw",
-      [breakpoints.breakpoints.down("lg")]: {
-        fontSize: 52,
-        lineHeight: "52px",
-      },
+      lineHeight: "48px",
+      color: "white",
     },
     h2: {
-      fontSize: 18,
+      fontSize: "18px",
       fontFamily: "Noto Sans JP",
-      fontWeight: 400,
+      fontWeight: 100,
       lineHeight: "27px",
-      color: "#333333",
+      color: "white",
       "@media(min-width:1282px)": {},
     },
   },
@@ -67,7 +64,7 @@ function RoadmapDesktop() {
 
   const [title, setTitle] = useState(
     <Typography variant="h1">
-      我々の夢は
+      僕たちの夢は
       <br />
       日本一のDAO
     </Typography>
@@ -76,14 +73,26 @@ function RoadmapDesktop() {
   function defaultTitle() {
     setTitle(
       <Typography variant="h1">
-        我々の夢は
+        僕たちの夢は
         <br />
         日本一のDAO
       </Typography>
     );
   }
 
-  const [discription, setDiscription] = useState("これからの資産は「個性」");
+  // ホバーした時の透明度の変化
+  const [opacity, setOpacity] = useState([1, 1, 1, 1]);
+
+  function decreaseOpacity(event) {
+    var id = event.target.id;
+    var opacities = [0.5, 0.5, 0.5, 0.5];
+    opacities[id] = "100%";
+    setOpacity(opacities);
+  }
+
+  function resetOpacity() {
+    setOpacity([1, 1, 1, 1]);
+  }
 
   // アニメーション
   const configList = Object.keys(config);
@@ -105,20 +114,23 @@ function RoadmapDesktop() {
     <ThemeProvider theme={theme}>
       <Box sx={{ marginTop: "3%" }}>
         <Grid container sx={{ marginTop: "3%", marginLeft: "20%" }}>
-          <Grid item xs={2} ref={ref1}>
+          <Grid item xs={2} ref={ref1} sx={{ opacity: opacity[0] }}>
             <animated.img
+              id="0"
               width={"100%"}
               src="https://i.ibb.co/cgnD8xk/left.png"
               className={animate1}
               style={{ transform: props1.xys1.to(trans) }}
-              onMouseEnter={() => {
+              onMouseEnter={(e) => {
                 setAnimate1("");
                 setTitle(<Typography variant="h1">限定ショップ</Typography>);
+                decreaseOpacity(e);
               }}
               onMouseLeave={() => {
                 set1([0, 0, 1]);
                 setAnimate1("float");
                 defaultTitle();
+                resetOpacity();
               }}
               onMouseMove={(e) => {
                 const rect1 = ref1.current.getBoundingClientRect();
@@ -126,22 +138,30 @@ function RoadmapDesktop() {
               }}
             />
           </Grid>
-          <Grid item xs={2} sx={{ marginTop: "5vw" }} ref={ref2}>
+          <Grid
+            item
+            xs={2}
+            sx={{ marginTop: "5vw", opacity: opacity[1] }}
+            ref={ref2}
+          >
             <animated.img
+              id="1"
               width={"130%"}
               src="https://i.ibb.co/f1NvJQw/left2.png"
               className={animate2}
               style={{
                 transform: props2.xys2.to(trans),
               }}
-              onMouseEnter={() => {
+              onMouseEnter={(e) => {
                 setAnimate2("");
                 setTitle(<Typography variant="h1">メガワールド</Typography>);
+                decreaseOpacity(e);
               }}
               onMouseLeave={() => {
                 set1([0, 0, 1]);
                 setAnimate2("float");
                 defaultTitle();
+                resetOpacity();
               }}
               onMouseMove={(e) => {
                 const rect2 = ref2.current.getBoundingClientRect();
@@ -155,24 +175,27 @@ function RoadmapDesktop() {
           <Grid
             item
             xs={2}
-            sx={{ marginLeft: "-8%", marginTop: "8vw" }}
+            sx={{ marginLeft: "-8%", marginTop: "8vw", opacity: opacity[2] }}
             ref={ref3}
           >
             <animated.img
+              id="2"
               width={"130%"}
               src="https://i.ibb.co/Qd536qL/right2.png"
               className={animate3}
               style={{
                 transform: props3.xys3.to(trans),
               }}
-              onMouseEnter={() => {
+              onMouseEnter={(e) => {
                 setAnimate3("");
                 setTitle(<Typography variant="h1">ゲーミング</Typography>);
+                decreaseOpacity(e);
               }}
               onMouseLeave={() => {
                 set1([0, 0, 1]);
                 setAnimate3("float");
                 defaultTitle();
+                resetOpacity();
               }}
               onMouseMove={(e) => {
                 const rect3 = ref3.current.getBoundingClientRect();
@@ -180,22 +203,30 @@ function RoadmapDesktop() {
               }}
             />
           </Grid>
-          <Grid item xs={2} sx={{ marginLeft: "8%" }} ref={ref4}>
+          <Grid
+            item
+            xs={2}
+            sx={{ marginLeft: "8%", opacity: opacity[3] }}
+            ref={ref4}
+          >
             <animated.img
+              id="3"
               width={"50%"}
               src="https://i.ibb.co/XS4qTQZ/right.png"
               className={animate4}
               style={{
                 transform: props4.xys4.to(trans),
               }}
-              onMouseEnter={() => {
+              onMouseEnter={(e) => {
                 setTitle(<Typography variant="h1">メディア活動</Typography>);
                 setAnimate4("");
+                decreaseOpacity(e);
               }}
               onMouseLeave={() => {
                 set1([0, 0, 1]);
                 setAnimate4("float");
                 defaultTitle();
+                resetOpacity();
               }}
               onMouseMove={(r) => {
                 const rect4 = ref4.current.getBoundingClientRect();
@@ -204,21 +235,23 @@ function RoadmapDesktop() {
             />
           </Grid>
         </Grid>
-        <Grid container sx={{ marginTop: "5vw" }}>
-          <Grid
-            item
-            sx={{
-              position: "fixed",
-              left: "0",
-              bottom: "-5px",
-            }}
-          >
-            <img
-              className="desktopMain"
-              src="https://i.ibb.co/XLMGBd1/main.png"
-            />
+        <Grid container sx={{ position: "fixed", bottom: 0, width: "100%" }}>
+          <Grid sx={{ width: "700px" }}>
+            <Box
+              sx={{
+                position: "fixed",
+                left: "0",
+                bottom: "-5px",
+                pointerEvents: "none",
+              }}
+            >
+              <img
+                className="desktopMain"
+                src="https://i.ibb.co/XLMGBd1/main.png"
+              />
+            </Box>
           </Grid>
-          <Grid sx={{ marginLeft: "42vw" }}>
+          <Grid sx={{ marginLeft: "50px", marginBottom: "50px" }}>
             {title}
             <Typography variant="h2" sx={{ marginTop: "50px" }}>
               これからの資産は「個性」

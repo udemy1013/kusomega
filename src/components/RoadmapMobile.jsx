@@ -1,69 +1,107 @@
 import { React, useRef, useState } from "react";
 import { Box, Container, Grid, ThemeProvider, Typography } from "@mui/material";
 import "../css/style.css";
-import { createTheme } from "@mui/system";
-import { useSpring, animated, config } from "@react-spring/web";
-import Island from "./Island";
+import { Link } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 function RoadmapMobile() {
-  const [islands, setIsland] = useState([
+  const islands = [
     "https://i.ibb.co/cgnD8xk/left.png",
     "https://i.ibb.co/XS4qTQZ/right.png",
     "https://i.ibb.co/f1NvJQw/left2.png",
     "https://i.ibb.co/Qd536qL/right2.png",
-  ]);
+  ];
 
-  function islandTap(e) {
-    setIsland(islands[e.currentTarget.key]);
-  }
+  const urls = [
+    "/roadmap/shop",
+    "/roadmap/media",
+    "/roadmap/world",
+    "/roadmap/game",
+  ];
 
   return (
     <Container sx={{ marginTop: "100px" }}>
-      <Container>
-        <Typography
-          fontFamily="Dela Gothic One"
-          fontSize="48px"
-          lineHeight="48px"
-          textAlign="left"
-        >
-          我々の夢は
-          <br />
-          日本一のDAO。
-        </Typography>
-        <Typography
-          fontFamily="Noto Sans JP"
-          textAlign="left"
-          letterSpacing=".1rem"
-          fontSize=".8rem"
-          sx={{ marginTop: "20px" }}
-        >
-          これからの資産は「個性」
-          <br />
-          その人にしか生み出せないものがきっとある。
-          <br />
-          <br />
-          自分だけでは見えない世界があっても
-          <br />
-          きっと大丈夫。我々と共に探しに行こう。
-          <br />
-          僕らはフレンズなんだから。
-        </Typography>
-        <Grid container className="islands">
-          {islands.map((island) => {
-            return <Island island={island} onClick={islandTap} />;
-          })}
+      <Container
+        component={motion.div}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ y: "-100vh" }}
+        transition={{ duration: 1 }}
+        sx={{ padding: 0 }}
+      >
+        <Container>
+          <Typography
+            fontFamily="Dela Gothic One"
+            fontSize="1.5rem"
+            lineHeight="1.5rem"
+            textAlign="left"
+          >
+            我々の夢は
+            <br />
+            日本一のDAO。
+          </Typography>
+          <Typography
+            fontFamily="Noto Sans JP"
+            textAlign="left"
+            letterSpacing=".1rem"
+            fontSize=".75rem"
+            fontWeight="100"
+            sx={{ marginTop: "20px" }}
+          >
+            これからの資産は「個性」
+            <br />
+            その人にしか生み出せないものがきっとある。
+            <br />
+            <br />
+            自分だけでは見えない世界があっても
+            <br />
+            きっと大丈夫。我々と共に探しに行こう。
+            <br />
+            僕らはフレンズなんだから。
+          </Typography>
+        </Container>
+        <div align="right" style={{ width: "70%" }}>
+          <img
+            width="70px"
+            src="https://i.ibb.co/ftHDKG9/center.png"
+            className="daoIsland"
+            style={{ paddingTop: "50px", marginBottom: "-10vh" }}
+          />
+        </div>
+        <Grid container className="islands" sx={{ marginTop: "10vh" }}>
+          <AnimatePresence>
+            {islands.map((island, index) => {
+              return (
+                <Grid item xs={3} key={index}>
+                  <Link to={urls[index]}>
+                    <img src={island} className="float" />
+                  </Link>
+                </Grid>
+              );
+            })}
+          </AnimatePresence>
         </Grid>
       </Container>
-      <Grid
-        item
-        sx={{
-          position: "fixed",
-          left: "0",
-          bottom: "-5px",
-        }}
-      >
-        <img src="https://i.ibb.co/XLMGBd1/main.png" className="mainImg" />
-      </Grid>
+      <Container>
+        <Grid
+          item
+          sx={{
+            position: "fixed",
+            left: "0",
+            bottom: "-5px",
+          }}
+          layout
+        >
+          <motion.img
+            initial={{ opacity: 0, x: "-100vh" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "-100vh" }}
+            transition={{ duration: 1 }}
+            src="https://i.ibb.co/XLMGBd1/main.png"
+            className="mainImg"
+          />
+        </Grid>
+      </Container>
     </Container>
   );
 }
