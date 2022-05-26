@@ -100,8 +100,27 @@ export class Navbar extends React.Component {
             <Link to="/team" className="linkText">
               <LinkTypography>開発チーム</LinkTypography>
             </Link>
-            <Link to="#" className="linkText">
-              <LinkTypography>ショップ</LinkTypography>
+            <Link
+              to="#"
+              className="linkText"
+              xs={{ position: "relative", pointerEvents: "none" }}
+            >
+              <Box sx={{ position: "relative" }}>
+                <Typography
+                  sx={{
+                    backgroundColor: "red",
+                    position: "absolute",
+                    fontSize: "3px",
+                    padding: "0px 3px",
+                    right: "0px",
+                    top: "-.6rem",
+                    borderRadius: ".3rem",
+                  }}
+                >
+                  Soon
+                </Typography>
+                <LinkTypography>ショップ</LinkTypography>
+              </Box>
             </Link>
             <Link to="#" className="linkText">
               <Instagram sx={{ height: 18, paddingTop: "2px" }} />
@@ -178,7 +197,17 @@ export class Navbar extends React.Component {
                 </li>
                 <li>
                   <a class="menu__item" href="#">
-                    Twitter
+                    ツイッター
+                  </a>
+                </li>
+                <li>
+                  <a class="menu__item" href="#">
+                    インスタグラム
+                  </a>
+                </li>
+                <li>
+                  <a class="menu__item" href="#">
+                    オープンシー
                   </a>
                 </li>
               </ul>

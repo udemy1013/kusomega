@@ -37,7 +37,7 @@ const theme = createTheme({
     h2: {
       fontSize: "18px",
       fontFamily: "Noto Sans JP",
-      fontWeight: 100,
+      fontWeight: 300,
       lineHeight: "27px",
       color: "white",
       "@media(min-width:1282px)": {},
@@ -121,16 +121,10 @@ function RoadmapDesktop() {
               src="https://i.ibb.co/cgnD8xk/left.png"
               className={animate1}
               style={{ transform: props1.xys1.to(trans) }}
-              onMouseEnter={(e) => {
+              onClick={(e) => {
                 setAnimate1("");
                 setTitle(<Typography variant="h1">限定ショップ</Typography>);
                 decreaseOpacity(e);
-              }}
-              onMouseLeave={() => {
-                set1([0, 0, 1]);
-                setAnimate1("float");
-                defaultTitle();
-                resetOpacity();
               }}
               onMouseMove={(e) => {
                 const rect1 = ref1.current.getBoundingClientRect();
@@ -152,16 +146,10 @@ function RoadmapDesktop() {
               style={{
                 transform: props2.xys2.to(trans),
               }}
-              onMouseEnter={(e) => {
+              onClick={(e) => {
                 setAnimate2("");
                 setTitle(<Typography variant="h1">メガワールド</Typography>);
                 decreaseOpacity(e);
-              }}
-              onMouseLeave={() => {
-                set1([0, 0, 1]);
-                setAnimate2("float");
-                defaultTitle();
-                resetOpacity();
               }}
               onMouseMove={(e) => {
                 const rect2 = ref2.current.getBoundingClientRect();
@@ -186,16 +174,10 @@ function RoadmapDesktop() {
               style={{
                 transform: props3.xys3.to(trans),
               }}
-              onMouseEnter={(e) => {
+              onClick={(e) => {
                 setAnimate3("");
                 setTitle(<Typography variant="h1">ゲーミング</Typography>);
                 decreaseOpacity(e);
-              }}
-              onMouseLeave={() => {
-                set1([0, 0, 1]);
-                setAnimate3("float");
-                defaultTitle();
-                resetOpacity();
               }}
               onMouseMove={(e) => {
                 const rect3 = ref3.current.getBoundingClientRect();
@@ -217,16 +199,10 @@ function RoadmapDesktop() {
               style={{
                 transform: props4.xys4.to(trans),
               }}
-              onMouseEnter={(e) => {
+              onClick={(e) => {
                 setTitle(<Typography variant="h1">メディア活動</Typography>);
                 setAnimate4("");
                 decreaseOpacity(e);
-              }}
-              onMouseLeave={() => {
-                set1([0, 0, 1]);
-                setAnimate4("float");
-                defaultTitle();
-                resetOpacity();
               }}
               onMouseMove={(r) => {
                 const rect4 = ref4.current.getBoundingClientRect();

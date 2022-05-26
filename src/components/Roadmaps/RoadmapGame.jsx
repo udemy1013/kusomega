@@ -11,30 +11,26 @@ export const RoadmapShop = () => {
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
+    changeDotsColor();
   }, [emblaApi]);
 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
+    changeDotsColor();
   }, [emblaApi]);
 
-  // 白が1で黒が0
-  const [svgColorNum, setColorNum] = useState([
-    "fill: white",
-    "#232323",
-    "#232323",
-  ]);
+  const [dotscolor, setdotscolor] = useState(["active_dot", ""]);
 
-  function nextGlasse() {
-    if (svgColorNum[svgColorNum.length - 1] === "white") {
-      setColorNum(["white", "#232323", "#232323"]);
-    } else {
-      var colorList = svgColorNum;
-      console.log(svgColorNum.length);
-      colorList.unshift("#232323");
-      colorList.pop();
-      console.log(colorList);
-      setColorNum(colorList);
-    }
+  function changeDotsColor() {
+    var newColors = [];
+    var targetNum = emblaApi.slidesInView(true);
+
+    dotscolor.map((value, index) =>
+      index == targetNum ? newColors.push("active_dot") : newColors.push("")
+    );
+    console.log(targetNum[0].parseInt);
+    console.log(newColors);
+    setdotscolor(newColors);
   }
 
   return (
@@ -115,7 +111,6 @@ export const RoadmapShop = () => {
             class="embla__button embla__button--prev"
             onClick={() => {
               scrollPrev();
-              nextGlasse();
             }}
           >
             <svg
@@ -129,7 +124,11 @@ export const RoadmapShop = () => {
         <Grid item xs={7.2}>
           <Box id="projects" className="embla" ref={emblaRef}>
             <Box className="embla__container">
-              <Box className="embla__slide">
+              <Box
+                className="embla__slide"
+                onTouchEnd={changeDotsColor}
+                onClick={changeDotsColor}
+              >
                 <Box
                   sx={{
                     display: "flex",
@@ -171,7 +170,11 @@ export const RoadmapShop = () => {
                   フレンズが現実世界に迷い込んだ!?
                 </Typography>
               </Box>
-              <Box className="embla__slide">
+              <Box
+                className="embla__slide"
+                onTouchEnd={changeDotsColor}
+                onClick={changeDotsColor}
+              >
                 <Box
                   sx={{
                     display: "flex",
@@ -223,7 +226,6 @@ export const RoadmapShop = () => {
             class="embla__button embla__button--next"
             onClick={() => {
               scrollNext();
-              nextGlasse();
             }}
           >
             <svg class="embla__button__svg" viewBox="0 0 238.003 238.003">
@@ -232,6 +234,16 @@ export const RoadmapShop = () => {
           </button>
         </Grid>
       </Grid>
+      <Box sx={{ textAlign: "center" }}>
+        <Box
+          id="dots"
+          container
+          sx={{ width: "30%", display: "inline-block", paddingTop: "5px" }}
+        >
+          <Box className={dotscolor[0]}></Box>
+          <Box className={dotscolor[1]}></Box>
+        </Box>
+      </Box>
     </Container>
   );
 };

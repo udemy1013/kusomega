@@ -45,7 +45,7 @@ function RoadmapMobile() {
             textAlign="left"
             letterSpacing=".1rem"
             fontSize=".75rem"
-            fontWeight="100"
+            fontWeight="500"
             sx={{ marginTop: "20px" }}
           >
             これからの資産は「個性」

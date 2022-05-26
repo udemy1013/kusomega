@@ -9,6 +9,7 @@ import RoadmapMedia from "./Roadmaps/RoadmapMedia";
 import RoadmapGame from "./Roadmaps/RoadmapGame";
 import RoadmapWorld from "./Roadmaps/RoadmapWorld";
 import { AnimatePresence } from "framer-motion";
+import { Teams } from "./Teams.jsx";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -30,6 +31,7 @@ en"
           <Route path="/roadmap/world" element={<RoadmapWorld />} />
           <Route path="/roadmap/media" element={<RoadmapMedia />} />
           <Route path="/roadmap/game" element={<RoadmapGame />} />
+          <Route path="/team" element={<Teams />} />
         </Route>
       </Routes>
     </AnimatePresence>

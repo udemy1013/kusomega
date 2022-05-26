@@ -1,18 +1,19 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import AboutDesktop from "./AboutDesktop";
-import AboutMobile from "./AboutMobile";
+import TeamsMobile from "./TeamsMobile";
+import TeamsDesktop from "./TeamsDesktop";
 
-export const About = () => {
+export const Teams = () => {
   const isDeskTopOrLaptop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
   return (
     <div>
-      {isDeskTopOrLaptop && <AboutDesktop />}
-      {isTabletOrMobile && <AboutMobile />}
+      {isDeskTopOrLaptop && <TeamsDesktop />}
+      {isTabletOrMobile && <TeamsMobile />}
     </div>
   );
 };
 
-export default About;
+export default Teams;

@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useCallback } from "react";
+import { React, useState } from "react";
 import {
   Button,
   Container,
@@ -6,63 +6,79 @@ import {
   Paper,
   Typography,
   SvgIcon,
+  Link,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { ArrowDownward } from "@mui/icons-material";
+import { ArrowForward } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 
 function AboutMobile() {
   document.body.style.overflow = "wrapper";
   const [emblaRef, emblaApi] = useEmblaCarousel();
-  const [imageBottom, setImageBottom] = useState("");
+  const [dotscolor, setdotscolor] = useState(["active_dot", "", "", ""]);
 
-  const slideto1 = useCallback(() => {
-    if (emblaApi) emblaApi.scrollTo(0);
-  }, [emblaApi]);
+  function changeDotsColor() {
+    var newColors = [];
+    var targetNum = emblaApi.slidesInView(true);
 
-  const slideto2 = useCallback(() => {
-    if (emblaApi) emblaApi.scrollTo(1);
-  }, [emblaApi]);
-
-  const slideto3 = useCallback(() => {
-    if (emblaApi) emblaApi.scrollTo(2);
-  }, [emblaApi]);
+    dotscolor.map((value, index) =>
+      index == targetNum ? newColors.push("active_dot") : newColors.push("")
+    );
+    console.log(targetNum[0].parseInt);
+    console.log(newColors);
+    setdotscolor(newColors);
+  }
 
   return (
     <Box>
       <Container>
         <Container
-          sx={{ marginTop: "6rem" }}
+          sx={{ marginTop: "5rem" }}
           component={motion.div}
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           exit={{ opacity: 0 }}
         >
-          <Box ref={emblaRef} className="embla" sx={{ paddingBottom: "2rem" }}>
+          <Box ref={emblaRef} className="embla" sx={{ paddingBottom: "1px" }}>
             <Box className="embla__container">
-              <Grid id="slide1" container className="embla__slide">
-                <Typography
-                  variant="h2"
-                  fontFamily={"Dela Gothic One"}
-                  fontSize="2rem"
-                  lineHeight="2rem"
-                  textAlign="left"
-                  color="white"
-                >
-                  メガネをかければ
-                  <br />
-                  みんな友達
-                </Typography>
-                <Box sx={{ paddingRight: "20%" }}>
+              <Grid
+                id="slide1"
+                container
+                className="embla__slide"
+                onTouchEnd={changeDotsColor}
+                onClick={changeDotsColor}
+                sx={{ display: "block" }}
+              >
+                <Box sx={{ display: "inline" }}>
+                  <Typography
+                    variant="h2"
+                    fontFamily={"Dela Gothic One"}
+                    fontSize="2rem"
+                    lineHeight="1"
+                    textAlign="left"
+                    color="white"
+                  >
+                    メガネをかければ
+                    <br />
+                    みんな友達
+                    <Box
+                      sx={{ position: "fixed", right: "18%", top: "1rem" }}
+                      component={"img"}
+                      src="https://i.ibb.co/r474Nj7/image.png"
+                      width="50px"
+                    ></Box>
+                  </Typography>
+                </Box>
+                <Box sx={{ paddingRight: "20%", marginTop: "2rem" }}>
                   <Typography
                     fontFamily="Noto Sans JP"
                     textAlign="left"
                     letterSpacing=".1rem"
-                    fontSize=".8rem"
                     lineHeight="1.3 rem"
-                    sx={{ marginTop: "20px" }}
-                    fontWeight="300"
+                    sx={{ marginTop: ".5vh" }}
+                    fontWeight="500"
+                    fontSize="12px"
                   >
                     このNFTを手にする事で
                     <br />
@@ -120,7 +136,14 @@ function AboutMobile() {
                 </Box>
               </Grid>
 
-              <Grid id="slide2" container className="embla__slide">
+              <Grid
+                id="slide2"
+                container
+                className="embla__slide"
+                onTouchEnd={changeDotsColor}
+                onClick={changeDotsColor}
+                sx={{ display: "block" }}
+              >
                 <Typography
                   variant="h2"
                   fontFamily={"Dela Gothic One"}
@@ -131,29 +154,34 @@ function AboutMobile() {
                 >
                   わからないことだらけ
                 </Typography>
-                <Box sx={{ paddingRight: "20%" }}>
+                <Box sx={{ paddingRight: "20%", marginTop: "2rem" }}>
                   <Typography
                     fontFamily="Noto Sans JP"
                     textAlign="left"
                     letterSpacing=".1rem"
-                    fontSize=".8rem"
                     lineHeight="1.3 rem"
-                    sx={{ marginTop: "20px" }}
-                    fontWeight="300"
+                    fontWeight="500"
+                    fontSize="12px"
                   >
-                    このNFTを手にする事で
+                    「NFTってそもそも何？」
                     <br />
-                    誰もが自由にKUSOMEGANEFRIENDSを使った二次創作プロジェクトを立ち上
-                    げたり、参加したりすることができます。
-                    <br /> <br /> まるで友達のように <br />
-                    励ましあい、アイデアを尊重しあう、
-                    そんな関係をみんなと築きながらクリエイター支援活動を行っていきたい。
+                    今見ているそこのキミもそう思っているかもしれません
+                    作り出した僕たちもそう感じていました。
                     <br />
                     <br />
-                    そんな思いでプロジェクトをはじめました。
+                    本当に知れば知るほど NFTやその技術の可能性は無限大です。
+                    <br />
+                    <br />
+                    「なにもわからない」から始まったからこそ
+                    <br />
+                    僕たちは「初心者に寄り添い、分かりやすく」
+                    <br />
+                    をメインテーマに情報発信活動も行っております。
                   </Typography>
                   <Box sx={{ float: "right" }}>
                     <Button
+                      component={Link}
+                      href="https://www.instagram.com/crypto.wonkey/"
                       sx={{
                         borderRadius: "20px",
                         backgroundColor: "#FFBA01",
@@ -163,41 +191,21 @@ function AboutMobile() {
                       }}
                       variant="contained"
                     >
-                      参加する
-                      <SvgIcon sx={{ height: 18 }}>
-                        <svg
-                          id="レイヤー_1"
-                          data-name="レイヤー 1"
-                          viewBox="0 0 24 18.29"
-                        >
-                          <defs>
-                            <clipPath
-                              id="clip-path"
-                              transform="translate(0 -2.84)"
-                            >
-                              <rect
-                                class="cls-1"
-                                y="2.7"
-                                width="24"
-                                height="18.59"
-                              />
-                            </clipPath>
-                          </defs>
-                          <g class="cls-2">
-                            <path
-                              class="cls-3"
-                              d="M20.32,4.36a20,20,0,0,0-4.89-1.52.09.09,0,0,0-.08,0c-.21.38-.44.87-.6,1.25a18.71,18.71,0,0,0-5.49,0c-.17-.39-.41-.87-.62-1.25a.09.09,0,0,0-.08,0A20.08,20.08,0,0,0,3.68,4.36l0,0A20.25,20.25,0,0,0,.1,18.05a.05.05,0,0,0,0,.05,19.67,19.67,0,0,0,6,3,.1.1,0,0,0,.09,0,14.06,14.06,0,0,0,1.22-2,.07.07,0,0,0,0-.1,12.86,12.86,0,0,1-1.87-.9.07.07,0,0,1,0-.12l.37-.3a.12.12,0,0,1,.08,0,14.14,14.14,0,0,0,12.06,0,.11.11,0,0,1,.08,0l.37.3a.07.07,0,0,1,0,.12,11.55,11.55,0,0,1-1.88.89.08.08,0,0,0,0,.11,16.11,16.11,0,0,0,1.23,2,.07.07,0,0,0,.08,0,19.76,19.76,0,0,0,6-3l0-.05A20.11,20.11,0,0,0,20.35,4.39ZM8,15.32A2.31,2.31,0,0,1,5.86,12.9,2.3,2.3,0,0,1,8,10.48a2.29,2.29,0,0,1,2.16,2.42A2.29,2.29,0,0,1,8,15.32Zm8,0a2.3,2.3,0,0,1-2.15-2.42A2.29,2.29,0,0,1,16,10.48a2.28,2.28,0,0,1,2.16,2.42A2.28,2.28,0,0,1,16,15.32Z"
-                              transform="translate(0 -2.84)"
-                            />
-                          </g>
-                        </svg>
-                      </SvgIcon>
+                      チェックする
+                      <ArrowForward sx={{ height: 18 }} />
                     </Button>
                   </Box>
                 </Box>
               </Grid>
 
-              <Grid id="slide3" container className="embla__slide">
+              <Grid
+                id="slide3"
+                container
+                className="embla__slide"
+                onTouchEnd={changeDotsColor}
+                onClick={changeDotsColor}
+                sx={{ display: "block" }}
+              >
                 <Typography
                   variant="h2"
                   fontFamily={"Dela Gothic One"}
@@ -215,21 +223,27 @@ function AboutMobile() {
                     fontFamily="Noto Sans JP"
                     textAlign="left"
                     letterSpacing=".1rem"
-                    fontSize=".8rem"
                     lineHeight="1.3 rem"
-                    sx={{ marginTop: "40px" }}
-                    fontWeight="300"
+                    sx={{ marginTop: "2rem" }}
+                    fontWeight="500"
+                    fontSize="12px"
                   >
-                    このNFTを手にする事で
+                    NFTのコレクションではよくある
                     <br />
-                    誰もが自由にKUSOMEGANEFRIENDSを使った二次創作プロジェクトを立ち上
-                    げたり、参加したりすることができます。
-                    <br /> <br /> まるで友達のように <br />
-                    励ましあい、アイデアを尊重しあう、
-                    そんな関係をみんなと築きながらクリエイター支援活動を行っていきたい。
+                    自動生成で大量にコレクションを創っていく手法は
+                    あえて行いません。
+                    <br /> <br />
+                    フレンズを創るうえで大事にしていきたいモノは「個性」です。
+                    同じフレンズが誕生することは絶対にありません。
                     <br />
                     <br />
-                    そんな思いでプロジェクトをはじめました。
+                    毎日１人。
+                    <br />
+                    新しいフレンズが誕生します。
+                    <br />
+                    <br />
+                    数はちょっと物足りないかもしれません。
+                    だからこそ大事にしたいと思える作品作りをしていきたいと思っております。
                   </Typography>
                   <Box sx={{ float: "right" }}>
                     <Button
@@ -276,7 +290,12 @@ function AboutMobile() {
                 </Box>
               </Grid>
 
-              <Grid container className="embla__slide">
+              <Grid
+                container
+                className="embla__slide"
+                onTouchEnd={changeDotsColor}
+                onClick={changeDotsColor}
+              >
                 <Typography
                   variant="h2"
                   fontFamily={"Dela Gothic One"}
@@ -288,26 +307,35 @@ function AboutMobile() {
                   キミの考えたフレンズも生まれる！？
                   <br />
                 </Typography>
-                <Box sx={{ paddingRight: "20%" }}>
+                <Box sx={{ paddingRight: "10%" }}>
                   <Typography
                     fontFamily="Noto Sans JP"
                     textAlign="left"
                     letterSpacing=".1rem"
-                    fontSize=".8rem"
                     lineHeight="1.3 rem"
                     sx={{ marginTop: "20px" }}
-                    fontWeight="300"
+                    fontWeight="500"
+                    fontSize="12px"
                   >
-                    このNFTを手にする事で
+                    アイデアやきっかけ
                     <br />
-                    誰もが自由にKUSOMEGANEFRIENDSを使った二次創作プロジェクトを立ち上
-                    げたり、参加したりすることができます。
-                    <br /> <br /> まるで友達のように <br />
-                    励ましあい、アイデアを尊重しあう、
-                    そんな関係をみんなと築きながらクリエイター支援活動を行っていきたい。
+                    それらはクリエイター一人が生み出すものよりいろんな人のアイデアがあった方が絶対に「楽しい」です。
                     <br />
                     <br />
-                    そんな思いでプロジェクトをはじめました。
+                    コミュニティ内に 「フレンズのリクエスト」ができる。
+                    チャットルームを準備しております。
+                    <br />
+                    <br />
+                    自分が好きだった動物やモノ、創作キャラ、子供の時に描いた絵、なんでも構いません。
+                    <br />
+                    いつでも募集しております。
+                    <br />
+                    <br />
+                    キミのアイデアが
+                    <br />
+                    フレンズとして登場する日も
+                    <br />
+                    そう遠くないかもしれませんね。
                   </Typography>
                   <Box sx={{ float: "right" }}>
                     <Button
@@ -355,31 +383,25 @@ function AboutMobile() {
               </Grid>
             </Box>
           </Box>
-          <Box
-            id="dots"
-            container
-            sx={{ width: "30%", display: "inline-block" }}
-          >
-            <Box className="active_dot"></Box>
-            <Box></Box>
-            <Box></Box>
-            <Box></Box>
-            <Box></Box>
+          <Box>
+            <Box
+              id="dots"
+              container
+              sx={{ width: "30%", display: "inline-block" }}
+            >
+              <Box className={dotscolor[0]}></Box>
+              <Box className={dotscolor[1]}></Box>
+              <Box className={dotscolor[2]}></Box>
+              <Box className={dotscolor[3]}></Box>
+            </Box>
           </Box>
         </Container>
       </Container>
-      <Box
-        id="selection"
-        sx={{
-          position: "fixed",
-          bottom: 0,
-          width: "100%",
-        }}
-      >
+      <Box sx={{ height: "100%", width: "100%", position: "absolte" }}>
         <Box
           component="img"
           sx={{
-            width: "30vh",
+            width: "50vw",
             position: "absolute",
             bottom: 0,
             right: 0,

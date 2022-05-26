@@ -1,8 +1,10 @@
 import React from "react";
-import { Grid, styled, Link, SvgIcon } from "@mui/material";
+import { Grid, styled, Link, SvgIcon, Typography } from "@mui/material";
 import "../css/style.css";
 import { Instagram, Twitter, Menu } from "@mui/icons-material";
 import { motion } from "framer-motion";
+import { Box } from "@mui/system";
+import Countdown from "react-countdown";
 
 const classes = "backgroundImage responsiveMargin";
 
@@ -34,6 +36,52 @@ function Home() {
           align="center"
           src="https://s8.gifyu.com/images/home_desktop.gif"
         />
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: "5rem",
+            right: "10rem",
+            backgroundColor: "#007DA6",
+            width: "30rem",
+            height: "5rem",
+            borderRadius: ".5rem",
+            display: "inline",
+          }}
+        >
+          <Box
+            sx={{
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              width: "fitContent",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontFamily: "Dela Gothic One",
+                paddingLeft: "20px",
+                display: "block",
+              }}
+            >
+              次のフレンズ登場まで
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontFamily: "Dela Gothic One",
+                paddingLeft: "20px",
+                display: "block",
+              }}
+            >
+              <Countdown date={Date.now() + 1000000} />
+            </Typography>
+            <Box sx={{ flexDirection: "row" }}>
+              <Typography>Opensea</Typography>
+            </Box>
+          </Box>
+        </Box>
       </Grid>
       <Grid className="md-block" item xs={12}>
         <div className="imageCenter">
