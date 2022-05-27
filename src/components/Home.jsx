@@ -57,28 +57,30 @@ function Home() {
               width: "fitContent",
             }}
           >
-            <Typography
-              sx={{
-                fontSize: "1rem",
-                fontFamily: "Dela Gothic One",
-                paddingLeft: "20px",
-                display: "block",
-              }}
-            >
-              次のフレンズ登場まで
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "1rem",
-                fontFamily: "Dela Gothic One",
-                paddingLeft: "20px",
-                display: "block",
-              }}
-            >
-              <Countdown date={Date.now() + 1000000} />
-            </Typography>
-            <Box sx={{ flexDirection: "row" }}>
-              <Typography>Opensea</Typography>
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: "1rem",
+                  fontFamily: "Dela Gothic One",
+                  paddingLeft: "20px",
+                  display: "block",
+                }}
+              >
+                次のフレンズ登場まで
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "1rem",
+                  fontFamily: "Dela Gothic One",
+                  paddingLeft: "20px",
+                  display: "block",
+                }}
+              >
+                <Countdown date={Date.now() + 1000000} />
+              </Typography>
+            </Box>
+            <Box>
+              <Typography sx={{}}>Opensea</Typography>
             </Box>
           </Box>
         </Box>

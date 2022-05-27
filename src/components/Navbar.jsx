@@ -92,7 +92,7 @@ export class Navbar extends React.Component {
 
           <MenuDesktop className="md-None">
             <Link className="mdNone linkText" to="about">
-              <LinkTypography>Kusomeganeとは</LinkTypography>
+              <LinkTypography>クソメガネフレンズとは</LinkTypography>
             </Link>
             <Link to="/roadmap" className="linkText">
               <LinkTypography>ミチシルベ</LinkTypography>

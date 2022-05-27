@@ -40,7 +40,7 @@ function AboutMobile() {
           initial={{ opacity: 0 }}
           exit={{ opacity: 0 }}
         >
-          <Box ref={emblaRef} className="embla" sx={{ paddingBottom: "1px" }}>
+          <Box ref={emblaRef} className="embla" sx={{ paddingBottom: "2px" }}>
             <Box className="embla__container">
               <Grid
                 id="slide1"
@@ -67,7 +67,7 @@ function AboutMobile() {
                       component={"img"}
                       src="https://i.ibb.co/r474Nj7/image.png"
                       width="50px"
-                    ></Box>
+                    />
                   </Typography>
                 </Box>
                 <Box sx={{ paddingRight: "20%", marginTop: "2rem" }}>
@@ -78,12 +78,10 @@ function AboutMobile() {
                     lineHeight="1.3 rem"
                     sx={{ marginTop: ".5vh" }}
                     fontWeight="500"
-                    fontSize="12px"
+                    fontSize="16px"
                   >
                     このNFTを手にする事で
-                    <br />
-                    誰もが自由にKUSOMEGANEFRIENDSを使った二次創作プロジェクトを立ち上
-                    げたり、参加したりすることができます。
+                    誰もが自由にKUSOMEGANEFRIENDSを使った二次創作プロジェクトを立ち上げたり、参加したりすることができます。
                     <br /> <br /> まるで友達のように <br />
                     励ましあい、アイデアを尊重しあう、
                     そんな関係をみんなと築きながらクリエイター支援活動を行っていきたい。
@@ -91,7 +89,7 @@ function AboutMobile() {
                     <br />
                     そんな思いでプロジェクトをはじめました。
                   </Typography>
-                  <Box sx={{ float: "right" }}>
+                  <Box sx={{ float: "left" }}>
                     <Button
                       sx={{
                         borderRadius: "20px",
@@ -102,7 +100,10 @@ function AboutMobile() {
                       }}
                       variant="contained"
                     >
-                      参加する
+                      <Typography sx={{ fontWeight: 800, color: "#232323" }}>
+                        参加する
+                      </Typography>
+
                       <SvgIcon sx={{ height: 18 }}>
                         <svg
                           id="レイヤー_1"
@@ -142,7 +143,7 @@ function AboutMobile() {
                 className="embla__slide"
                 onTouchEnd={changeDotsColor}
                 onClick={changeDotsColor}
-                sx={{ display: "block" }}
+                sx={{ display: "block", overflow: "visible" }}
               >
                 <Typography
                   variant="h2"
@@ -153,6 +154,21 @@ function AboutMobile() {
                   color="white"
                 >
                   わからないことだらけ
+                  <Box
+                    sx={{
+                      position: "relative",
+                      display: "inline",
+                      float: "right",
+                      marginTop: "-.5rem",
+                    }}
+                  >
+                    <Box
+                      sx={{}}
+                      component={"img"}
+                      src="https://i.ibb.co/CzqgCMW/image.png"
+                      width="50px"
+                    />
+                  </Box>
                 </Typography>
                 <Box sx={{ paddingRight: "20%", marginTop: "2rem" }}>
                   <Typography
@@ -161,7 +177,7 @@ function AboutMobile() {
                     letterSpacing=".1rem"
                     lineHeight="1.3 rem"
                     fontWeight="500"
-                    fontSize="12px"
+                    fontSize="16px"
                   >
                     「NFTってそもそも何？」
                     <br />
@@ -173,12 +189,10 @@ function AboutMobile() {
                     <br />
                     <br />
                     「なにもわからない」から始まったからこそ
-                    <br />
                     僕たちは「初心者に寄り添い、分かりやすく」
-                    <br />
                     をメインテーマに情報発信活動も行っております。
                   </Typography>
-                  <Box sx={{ float: "right" }}>
+                  <Box sx={{ float: "left" }}>
                     <Button
                       component={Link}
                       href="https://www.instagram.com/crypto.wonkey/"
@@ -191,7 +205,9 @@ function AboutMobile() {
                       }}
                       variant="contained"
                     >
-                      チェックする
+                      <Typography sx={{ fontWeight: 800, color: "#232323" }}>
+                        チェックする
+                      </Typography>
                       <ArrowForward sx={{ height: 18 }} />
                     </Button>
                   </Box>
@@ -217,6 +233,22 @@ function AboutMobile() {
                   フレンズは
                   <br />
                   みんな一から手書き
+                  <Box
+                    sx={{
+                      position: "relative",
+                      display: "inline",
+                      float: "right",
+                      marginTop: "-0rem",
+                      marginLeft: "-1rem",
+                    }}
+                  >
+                    <Box
+                      sx={{}}
+                      component={"img"}
+                      src="https://i.ibb.co/w77M36w/image.png"
+                      width="50px"
+                    />
+                  </Box>
                 </Typography>
                 <Box sx={{ paddingRight: "20%" }}>
                   <Typography
@@ -226,10 +258,9 @@ function AboutMobile() {
                     lineHeight="1.3 rem"
                     sx={{ marginTop: "2rem" }}
                     fontWeight="500"
-                    fontSize="12px"
+                    fontSize="16px"
                   >
                     NFTのコレクションではよくある
-                    <br />
                     自動生成で大量にコレクションを創っていく手法は
                     あえて行いません。
                     <br /> <br />
@@ -245,7 +276,7 @@ function AboutMobile() {
                     数はちょっと物足りないかもしれません。
                     だからこそ大事にしたいと思える作品作りをしていきたいと思っております。
                   </Typography>
-                  <Box sx={{ float: "right" }}>
+                  <Box sx={{ float: "left" }}>
                     <Button
                       sx={{
                         borderRadius: "20px",
@@ -256,7 +287,9 @@ function AboutMobile() {
                       }}
                       variant="contained"
                     >
-                      参加する
+                      <Typography sx={{ fontWeight: 800, color: "#232323" }}>
+                        フレンズを見る
+                      </Typography>
                       <SvgIcon sx={{ height: 18 }}>
                         <svg
                           id="レイヤー_1"
@@ -305,7 +338,22 @@ function AboutMobile() {
                   color="white"
                 >
                   キミの考えたフレンズも生まれる！？
-                  <br />
+                  <Box
+                    sx={{
+                      position: "relative",
+                      display: "inline",
+                      float: "right",
+                      marginTop: "-0rem",
+                      marginLeft: "-1rem",
+                    }}
+                  >
+                    <Box
+                      sx={{}}
+                      component={"img"}
+                      src="https://i.ibb.co/w77M36w/image.png"
+                      width="50px"
+                    />
+                  </Box>
                 </Typography>
                 <Box sx={{ paddingRight: "10%" }}>
                   <Typography
@@ -315,7 +363,7 @@ function AboutMobile() {
                     lineHeight="1.3 rem"
                     sx={{ marginTop: "20px" }}
                     fontWeight="500"
-                    fontSize="12px"
+                    fontSize="16px"
                   >
                     アイデアやきっかけ
                     <br />
@@ -337,7 +385,7 @@ function AboutMobile() {
                     <br />
                     そう遠くないかもしれませんね。
                   </Typography>
-                  <Box sx={{ float: "right" }}>
+                  <Box sx={{ float: "left" }}>
                     <Button
                       sx={{
                         borderRadius: "20px",
@@ -348,7 +396,9 @@ function AboutMobile() {
                       }}
                       variant="contained"
                     >
-                      参加する
+                      <Typography sx={{ fontWeight: 800, color: "#232323" }}>
+                        参加する
+                      </Typography>
                       <SvgIcon sx={{ height: 18 }}>
                         <svg
                           id="レイヤー_1"
@@ -387,7 +437,7 @@ function AboutMobile() {
             <Box
               id="dots"
               container
-              sx={{ width: "30%", display: "inline-block" }}
+              sx={{ width: "30%", display: "inline-block", marginTop: "1rem" }}
             >
               <Box className={dotscolor[0]}></Box>
               <Box className={dotscolor[1]}></Box>
