@@ -1,8 +1,9 @@
-import { React, useRef, useState } from "react";
+import { React, useRef, useState, useCallback } from "react";
 import { Box, Grid, ThemeProvider, Typography } from "@mui/material";
 import "../css/style.css";
 import { createTheme } from "@mui/system";
 import { useSpring, animated, config } from "@react-spring/web";
+import useEmblaCarousel from "embla-carousel-react";
 
 const breakpoints = createTheme({
   breakpoints: {
@@ -45,17 +46,33 @@ const theme = createTheme({
   },
 });
 
-const calc = (x, y, rect) => [
-  -(y - rect.top - rect.height / 2) / 5,
-  (x - rect.left - rect.width / 2) / 5,
-  1.2,
-];
-const trans = (x, y, s) =>
-  `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
-
 function RoadmapDesktop() {
-  // はみ出ている部分を隠す
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow = "visible";
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+    changeDotsColor();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+    changeDotsColor();
+  }, [emblaApi]);
+
+  const [dotscolor, setdotscolor] = useState(["active_dot", ""]);
+
+  function changeDotsColor() {
+    var newColors = [];
+    var targetNum = emblaApi.slidesInView(true);
+
+    dotscolor.map((value, index) =>
+      index == targetNum ? newColors.push("active_dot") : newColors.push("")
+    );
+    console.log(targetNum[0].parseInt);
+    console.log(newColors);
+    setdotscolor(newColors);
+  }
 
   const [animate1, setAnimate1] = useState("float");
   const [animate2, setAnimate2] = useState("float");
@@ -69,6 +86,8 @@ function RoadmapDesktop() {
       日本一のDAO
     </Typography>
   );
+
+  const [subtitle, setSubTitle] = useState();
 
   const [discription, setDiscription] = useState(
     <Typography variant="h2" sx={{ marginTop: "50px" }}>
@@ -135,15 +154,23 @@ function RoadmapDesktop() {
               width={"100%"}
               src="https://i.ibb.co/cgnD8xk/left.png"
               className={animate1}
-              style={{ transform: props1.xys1.to(trans) }}
               onClick={(e) => {
                 setAnimate1("");
                 setTitle(<Typography variant="h1">SHOP</Typography>);
+                setSubTitle(
+                  <Typography
+                    fontFamily="Noto Sans JP"
+                    fontSize="1rem"
+                    lineHeight="1rem"
+                    marginTop="1rem"
+                    fontWeight="500"
+                    sx={{ whiteSpace: "nowrap", overflow: " hidden" }}
+                  >
+                    ここでしか手に入らないもの
+                  </Typography>
+                );
+
                 decreaseOpacity(e);
-              }}
-              onMouseMove={(e) => {
-                const rect1 = ref1.current.getBoundingClientRect();
-                set1(calc(e.clientX, e.clientY, rect1));
               }}
             />
           </Grid>
@@ -156,19 +183,12 @@ function RoadmapDesktop() {
             <animated.img
               id="1"
               width={"130%"}
-              src="https://i.ibb.co/f1NvJQw/left2.png"
+              src="https://i.ibb.co/2sSvtwt/park-land.png"
               className={animate2}
-              style={{
-                transform: props2.xys2.to(trans),
-              }}
               onClick={(e) => {
                 setAnimate2("");
-                setTitle(<Typography variant="h1">PARK</Typography>);
+                setTitle(<Typography variant="h1">???</Typography>);
                 decreaseOpacity(e);
-              }}
-              onMouseMove={(e) => {
-                const rect2 = ref2.current.getBoundingClientRect();
-                set2(calc(e.clientX, e.clientY, rect2));
               }}
             />
           </Grid>
@@ -178,50 +198,41 @@ function RoadmapDesktop() {
           <Grid
             item
             xs={2}
-            sx={{ marginLeft: "-8%", marginTop: "8vw", opacity: opacity[2] }}
+            sx={{
+              marginLeft: "-8%",
+              marginTop: "8vw",
+              opacity: opacity[2],
+              position: "relative",
+            }}
             ref={ref3}
           >
             <animated.img
               id="2"
               width={"130%"}
-              src="https://i.ibb.co/Qd536qL/right2.png"
+              src="https://i.ibb.co/1XrDF32/game-land.png"
               className={animate3}
-              style={{
-                transform: props3.xys3.to(trans),
-              }}
               onClick={(e) => {
                 setAnimate3("");
                 setTitle(<Typography variant="h1">GAME</Typography>);
                 decreaseOpacity(e);
-              }}
-              onMouseMove={(e) => {
-                const rect3 = ref3.current.getBoundingClientRect();
-                set3(calc(e.clientX, e.clientY, rect3));
               }}
             />
           </Grid>
           <Grid
             item
             xs={2}
-            sx={{ marginLeft: "8%", opacity: opacity[3] }}
+            sx={{ marginLeft: "8%", opacity: opacity[3], position: "relative" }}
             ref={ref4}
           >
             <animated.img
               id="3"
               width={"50%"}
-              src="https://i.ibb.co/XS4qTQZ/right.png"
+              src="https://i.ibb.co/QPps2jp/buissiness-land.png"
               className={animate4}
-              style={{
-                transform: props4.xys4.to(trans),
-              }}
               onClick={(e) => {
                 setTitle(<Typography variant="h1">BUSINESS</Typography>);
                 setAnimate4("");
                 decreaseOpacity(e);
-              }}
-              onMouseMove={(r) => {
-                const rect4 = ref4.current.getBoundingClientRect();
-                set4(calc(r.clientX, r.clientY, rect4));
               }}
             />
           </Grid>
@@ -243,19 +254,11 @@ function RoadmapDesktop() {
             </Box>
           </Grid>
           <Grid sx={{ marginLeft: "50px", marginBottom: "50px" }}>
-            {title}
-            <Typography variant="h2" sx={{ marginTop: "50px" }}>
-              これからの資産は「個性」
-              <br />
-              その人にしか生み出せないものがきっとある。
-              <br />
-              <br />
-              自分だけでは見えない世界があっても
-              <br />
-              きっと大丈夫。我々と共に探しに行こう。
-              <br />
-              僕らはフレンズなんだから。
-            </Typography>
+            <Box>
+              {title}
+              {subtitle}
+              {discription}
+            </Box>
           </Grid>
         </Grid>
       </Box>
