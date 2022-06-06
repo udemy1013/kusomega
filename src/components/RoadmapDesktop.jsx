@@ -70,6 +70,21 @@ function RoadmapDesktop() {
     </Typography>
   );
 
+  const [discription, setDiscription] = useState(
+    <Typography variant="h2" sx={{ marginTop: "50px" }}>
+      これからの資産は「個性」
+      <br />
+      その人にしか生み出せないものがきっとある。
+      <br />
+      <br />
+      自分だけでは見えない世界があっても
+      <br />
+      きっと大丈夫。我々と共に探しに行こう。
+      <br />
+      僕らはフレンズなんだから。
+    </Typography>
+  );
+
   function defaultTitle() {
     setTitle(
       <Typography variant="h1">
@@ -123,7 +138,7 @@ function RoadmapDesktop() {
               style={{ transform: props1.xys1.to(trans) }}
               onClick={(e) => {
                 setAnimate1("");
-                setTitle(<Typography variant="h1">限定ショップ</Typography>);
+                setTitle(<Typography variant="h1">SHOP</Typography>);
                 decreaseOpacity(e);
               }}
               onMouseMove={(e) => {
@@ -148,7 +163,7 @@ function RoadmapDesktop() {
               }}
               onClick={(e) => {
                 setAnimate2("");
-                setTitle(<Typography variant="h1">メガワールド</Typography>);
+                setTitle(<Typography variant="h1">PARK</Typography>);
                 decreaseOpacity(e);
               }}
               onMouseMove={(e) => {
@@ -176,7 +191,7 @@ function RoadmapDesktop() {
               }}
               onClick={(e) => {
                 setAnimate3("");
-                setTitle(<Typography variant="h1">ゲーミング</Typography>);
+                setTitle(<Typography variant="h1">GAME</Typography>);
                 decreaseOpacity(e);
               }}
               onMouseMove={(e) => {
@@ -200,7 +215,7 @@ function RoadmapDesktop() {
                 transform: props4.xys4.to(trans),
               }}
               onClick={(e) => {
-                setTitle(<Typography variant="h1">メディア活動</Typography>);
+                setTitle(<Typography variant="h1">BUSINESS</Typography>);
                 setAnimate4("");
                 decreaseOpacity(e);
               }}

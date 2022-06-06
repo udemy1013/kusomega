@@ -142,7 +142,7 @@ export const RoadmapShop = () => {
                     lineHeight="1rem"
                     sx={{ whiteSpace: "nowrap", overflow: " hidden" }}
                   >
-                    #オンラインストア
+                    #ゲーム開発
                   </Typography>
                   <Box
                     sx={{
@@ -167,7 +167,7 @@ export const RoadmapShop = () => {
                   fontSize=".75rem"
                   fontWeight="300"
                 >
-                  フレンズが現実世界に迷い込んだ!?
+                  フレンズ達がゲームになって登場！！
                 </Typography>
               </Box>
               <Box
@@ -188,9 +188,8 @@ export const RoadmapShop = () => {
                     fontSize="1rem"
                     lineHeight="1rem"
                   >
-                    #販売アプローチ
+                    #コンペティション
                     <br />
-                    &nbsp;&nbsp;商品開発
                   </Typography>
                   <Box
                     sx={{

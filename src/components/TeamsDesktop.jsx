@@ -39,7 +39,8 @@ function TeamsDesktop() {
   return (
     <Container
       sx={{
-        marginTop: "6rem",
+        marginTop: "3rem",
+        marginBottom: "3rem",
         textAlign: "center",
         maxWidth: "1600px !important",
       }}
