@@ -37,15 +37,24 @@ function AboutDesktop() {
     >
       <Grid container spacing={8}>
         <Grid item xs={6}>
-          <Typography
-            fontFamily={"Dela Gothic One"}
-            fontSize="4rem"
-            lineHeight="4rem"
-          >
-            メガネをかければ
-            <br />
-            誰でもともだち
-          </Typography>
+          <Box sx={{ display: "inline" }}>
+            <Typography
+              fontFamily={"Dela Gothic One"}
+              fontSize="4rem"
+              lineHeight="4rem"
+              sx={{ display: "inline" }}
+            >
+              メガネをかければ
+              <br />
+              誰でもともだち
+            </Typography>
+            <Box
+              sx={{ display: "inline" }}
+              component={"img"}
+              src="https://i.ibb.co/r474Nj7/image.png"
+              width="60px"
+            />
+          </Box>
 
           <Box sx={{ paddingRight: "20%", marginTop: "2rem" }}>
             <Typography
@@ -104,16 +113,25 @@ function AboutDesktop() {
           </Box>
 
           <TypoBox>
-            <Typography
-              variant="h2"
-              fontFamily={"Dela Gothic One"}
-              fontSize="4rem"
-              lineHeight="4rem"
-              textAlign="left"
-              color="white"
-            >
-              わからないことだらけ
-            </Typography>
+            <Box>
+              <Typography
+                variant="h2"
+                fontFamily={"Dela Gothic One"}
+                fontSize="4rem"
+                lineHeight="4rem"
+                textAlign="left"
+                color="white"
+                sx={{ display: "inline" }}
+              >
+                わからないことだらけ
+              </Typography>
+              <Box
+                sx={{ marginLeft: "1rem" }}
+                component={"img"}
+                src="https://i.ibb.co/CzqgCMW/image.png"
+                width="70px"
+              />
+            </Box>
             <Box sx={{ paddingRight: "20%", marginTop: "2rem" }}>
               <Typography
                 fontFamily="Noto Sans JP"
@@ -167,6 +185,12 @@ function AboutDesktop() {
               color="white"
             >
               フレンズは
+              <Box
+                sx={{ marginLeft: "1rem" }}
+                component={"img"}
+                src="https://i.ibb.co/w77M36w/image.png"
+                width="80px"
+              />
               <br />
               みんな一から手書き
             </Typography>
@@ -239,6 +263,12 @@ function AboutDesktop() {
               キミの考えたフレンズ
               <br />
               も生まれる！？
+              <Box
+                sx={{}}
+                component={"img"}
+                src="https://i.ibb.co/xf2nbPt/image.png"
+                width="80px"
+              />
               <br />
             </Typography>
             <Box sx={{ paddingRight: "20%" }}>

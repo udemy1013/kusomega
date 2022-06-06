@@ -350,7 +350,7 @@ function AboutMobile() {
                     <Box
                       sx={{}}
                       component={"img"}
-                      src="https://i.ibb.co/w77M36w/image.png"
+                      src="https://i.ibb.co/xf2nbPt/image.png"
                       width="50px"
                     />
                   </Box>

@@ -36,7 +36,7 @@ function Home() {
           align="center"
           src="https://s8.gifyu.com/images/home_desktop.gif"
         />
-        <Box
+        {/* <Box
           sx={{
             position: "absolute",
             bottom: "5rem",
@@ -83,7 +83,7 @@ function Home() {
               <Typography sx={{}}>Opensea</Typography>
             </Box>
           </Box>
-        </Box>
+        </Box> */}
       </Grid>
       <Grid className="md-block" item xs={12}>
         <div className="imageCenter">
