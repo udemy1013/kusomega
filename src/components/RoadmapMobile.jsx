@@ -7,9 +7,9 @@ import { AnimatePresence, motion } from "framer-motion";
 function RoadmapMobile() {
   const islands = [
     "https://i.ibb.co/cgnD8xk/left.png",
-    "https://i.ibb.co/XS4qTQZ/right.png",
-    "https://i.ibb.co/f1NvJQw/left2.png",
-    "https://i.ibb.co/Qd536qL/right2.png",
+    "https://i.ibb.co/drGL7Dv/bussi-junbi.png",
+    "https://i.ibb.co/prNqzB1/park-junbi.png",
+    "https://i.ibb.co/xgGdL32/asobi-junbi.png",
   ];
 
   const urls = [

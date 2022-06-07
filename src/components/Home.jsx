@@ -36,7 +36,7 @@ function Home() {
           align="center"
           src="https://s8.gifyu.com/images/home_desktop.gif"
         />
-        {/* <Box
+        <Paper
           sx={{
             position: "absolute",
             bottom: "64px",
@@ -51,14 +51,31 @@ function Home() {
           <Box
             sx={{
               display: "inline-block",
-              margin: 0,
-              position: "absolute",
-              top: "50%",
-              transform: "translateY(-50%)",
+
               width: "100%",
             }}
           >
-            <Box sx={{ display: "inline-block" }}>
+            <Box
+              sx={{
+                display: "inline-block",
+                marginLeft: "-8%",
+                marginTop: "-3%",
+              }}
+            >
+              <img
+                width="150px"
+                src="https://i.ibb.co/6B0YMpr/coundown-Side.png"
+              />
+            </Box>
+            <Box
+              sx={{
+                display: "inline-block",
+                margin: 0,
+                position: "absolute",
+                top: "50%",
+                transform: "translateY(-50%)",
+              }}
+            >
               <Typography
                 sx={{
                   fontSize: ".5rem",
@@ -106,11 +123,13 @@ function Home() {
                       fontSize: "1rem",
                       lineHeight: "1rem",
                       paddingRight: ".5rem",
+                      color: "black",
+                      fontWeight: "500",
                     }}
                   >
                     Opensea
                   </Typography>
-                  <SvgIcon sx={{ color: "white" }}>
+                  <SvgIcon sx={{ color: "color" }}>
                     <path
                       class="cls-1"
                       d="M24,12A12,12,0,1,1,12,0,12,12,0,0,1,24,12Z"
@@ -128,7 +147,7 @@ function Home() {
               </Box>
             </Box>
           </Box>
-        </Box> */}
+        </Paper>
       </Grid>
       <Grid className="md-block" item xs={12}>
         <div className="imageCenter">

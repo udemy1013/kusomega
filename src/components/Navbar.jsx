@@ -77,8 +77,15 @@ export class Navbar extends React.Component {
           boxShadow: "none",
           height: "0px",
         }}
+        className="navbar"
       >
-        <StyledToolbar sx={{ paddingleft: "48px", paddingTop: "12px" }}>
+        <StyledToolbar
+          sx={{
+            paddingTop: "12px",
+            paddingLeft: "0 !important",
+            paddingRight: "0 !important",
+          }}
+        >
           <Link to="/" className="noBG">
             <img
               src={this.state.image}

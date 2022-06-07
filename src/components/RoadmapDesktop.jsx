@@ -47,7 +47,7 @@ const theme = createTheme({
 });
 
 function RoadmapDesktop() {
-  document.body.style.overflow = "visible";
+  document.body.style.overflow = "hidden";
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const scrollPrev = useCallback(() => {
@@ -147,7 +147,11 @@ function RoadmapDesktop() {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ marginTop: "3%" }}>
-        <Grid container sx={{ marginTop: "3%", marginLeft: "20%" }}>
+        <Grid
+          className="islandsDesktop"
+          container
+          sx={{ marginTop: "3%", marginLeft: "20%" }}
+        >
           <Grid item xs={2} ref={ref1} sx={{ opacity: opacity[0] }}>
             <animated.img
               id="0"
@@ -183,7 +187,7 @@ function RoadmapDesktop() {
             <animated.img
               id="1"
               width={"130%"}
-              src="https://i.ibb.co/2sSvtwt/park-land.png"
+              src="https://i.ibb.co/prNqzB1/park-junbi.png"
               className={animate2}
               onClick={(e) => {
                 setAnimate2("");
@@ -209,7 +213,7 @@ function RoadmapDesktop() {
             <animated.img
               id="2"
               width={"130%"}
-              src="https://i.ibb.co/1XrDF32/game-land.png"
+              src="https://i.ibb.co/xgGdL32/asobi-junbi.png"
               className={animate3}
               onClick={(e) => {
                 setAnimate3("");
@@ -221,13 +225,13 @@ function RoadmapDesktop() {
           <Grid
             item
             xs={2}
-            sx={{ marginLeft: "8%", opacity: opacity[3], position: "relative" }}
+            sx={{ marginLeft: "6%", opacity: opacity[3], position: "relative" }}
             ref={ref4}
           >
             <animated.img
               id="3"
-              width={"50%"}
-              src="https://i.ibb.co/QPps2jp/buissiness-land.png"
+              width={"80%"}
+              src="https://i.ibb.co/drGL7Dv/bussi-junbi.png"
               className={animate4}
               onClick={(e) => {
                 setTitle(<Typography variant="h1">BUSINESS</Typography>);

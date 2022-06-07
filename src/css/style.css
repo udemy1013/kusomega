@@ -20,6 +20,10 @@ div .css-1goce4-MuiToolbar-root {
   padding-right: 48px;
 }
 
+.navbar {
+  padding: 0 5rem;
+}
+
 /* roadmap */
 @keyframes float {
   0% {
@@ -38,8 +42,23 @@ div .css-1goce4-MuiToolbar-root {
   animation: float 6s ease-in-out infinite;
 }
 
-.floatDelay1 {
+.islandsDesktop div:nth-child(1) img {
   animation-delay: -1s;
+}
+
+.islandsDesktop div:nth-child(2) img {
+  animation-delay: -1s;
+  pointer-events: none;
+}
+
+.islandsDesktop div:nth-child(4) img {
+  animation-delay: -2s;
+  pointer-events: none;
+}
+
+.islandsDesktop div:nth-child(5) img {
+  animation-delay: -0.5s;
+  pointer-events: none;
 }
 
 .floatDelay2 {
@@ -58,21 +77,24 @@ div .css-1goce4-MuiToolbar-root {
 
 .islands div:nth-child(2) img {
   margin-top: -10vh;
-  width: 10vh;
-  margin-left: 4vw;
+  width: 15vh;
   z-index: -1;
+  pointer-events: none;
+  margin-left: -25%;
 }
 
 .islands div:nth-child(3) img {
   margin-left: 9vw;
   width: 17vh;
   animation-delay: -3s;
+  pointer-events: none;
 }
 
 .islands div:nth-child(4) img {
   margin-left: -24vw;
   width: 23vh;
   margin-top: 15vh;
+  pointer-events: none;
   animation-delay: -5s;
 }
 
@@ -142,6 +164,9 @@ div .css-1goce4-MuiToolbar-root {
   }
   .md-block {
     display: block !important;
+  }
+  .navbar {
+    padding: 0;
   }
 }
 
