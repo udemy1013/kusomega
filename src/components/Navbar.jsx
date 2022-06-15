@@ -204,17 +204,25 @@ export class Navbar extends React.Component {
                 </li>
                 <li>
                   <a class="menu__item" href="#">
-                    ツイッター
+                    Twitter
                   </a>
                 </li>
                 <li>
                   <a class="menu__item" href="#">
-                    インスタグラム
+                    Instagram
                   </a>
                 </li>
                 <li>
-                  <a class="menu__item" href="#">
-                    オープンシー
+                  <a class="menu__item" href="https://discord.gg/2Fe9WkV3">
+                    Discord
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="menu__item"
+                    href="https://opensea.io/collection/kusomegane-collection"
+                  >
+                    フレンズを手に入れる
                   </a>
                 </li>
               </ul>

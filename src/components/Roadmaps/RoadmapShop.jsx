@@ -50,7 +50,7 @@ export const RoadmapShop = () => {
           <img
             className="dropshadow"
             src="https://i.ibb.co/SnQmJdk/sketch-shop.png"
-            width="80%"
+            width="320px"
           />
         </Box>
       </Container>
@@ -58,14 +58,14 @@ export const RoadmapShop = () => {
         component={motion.div}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        width="100%"
-        sx={{ marginTop: "10px", margin: "0 auto" }}
+        width="320px"
+        sx={{ marginTop: "10px", margin: "auto" }}
       >
         <Box sx={{ display: "inline-block" }}>
           <Box id="title" sx={{ display: "flex", alignItems: "end" }}>
             <Typography
               fontFamily="Dela Gothic One"
-              fontSize="2rem"
+              fontSize="1.73rem"
               lineHeight="2.2rem"
               textAlign="left"
               sx={{ whiteSpace: "nowrap" }}
@@ -97,7 +97,7 @@ export const RoadmapShop = () => {
               fontWeight="300"
               transition={{ duration: 1.5 }}
             >
-              NFTartを利用した現実世界でのプロダクト商品の限定販売を行います。
+              NFTを利用した現実世界でのプロダクト商品の限定販売を行います。
               <br />
               <br />
               NFTを購入すると商品と引き換えできるチケット（別途NFT）が無料で手に入ります。チケットは数種類からランダムで手に入るため、希少性が高く、コンプリートも難易度が高い仕様になりますが、新しくてわくわくするショップの在り方を研究し、創り上げていきます。

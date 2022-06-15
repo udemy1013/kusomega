@@ -239,18 +239,20 @@ function Home() {
                     alignItems: "center",
                   }}
                 >
-                  <Typography
-                    sx={{
+                  <a
+                    style={{
                       display: "inline",
                       fontSize: ".8rem",
                       lineHeight: "1rem",
                       paddingRight: ".5rem",
                       color: "black",
                       fontWeight: "500",
+                      textDecoration: "none",
                     }}
+                    href="https://opensea.io/collection/kusomegane-collection"
                   >
                     Opensea
-                  </Typography>
+                  </a>
                   <SvgIcon width="20px" sx={{ color: "color" }}>
                     <path
                       class="cls-1"
