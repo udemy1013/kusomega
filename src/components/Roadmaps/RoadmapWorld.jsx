@@ -65,7 +65,7 @@ export const RoadmapWorld = () => {
           <Box id="title" sx={{ display: "flex", alignItems: "end" }}>
             <Typography
               fontFamily="Dela Gothic One"
-              fontSize="2.2rem"
+              fontSize="1.9rem"
               lineHeight="2.2rem"
               textAlign="left"
               sx={{ whiteSpace: "nowrap" }}

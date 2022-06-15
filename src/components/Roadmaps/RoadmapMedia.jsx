@@ -50,7 +50,7 @@ export const RoadmapShop = () => {
           <img
             className="dropshadow"
             src="https://i.ibb.co/fMy0FXy/sketch-promotion.png"
-            width="80%"
+            width="320px"
           />
         </Box>
       </Container>
@@ -58,14 +58,14 @@ export const RoadmapShop = () => {
         component={motion.div}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        width="80%"
-        sx={{ marginTop: "10px", margin: "0 auto" }}
+        width="320px"
+        sx={{ marginTop: "10px", margin: "auto" }}
       >
-        <Box sx={{ display: "inline-block" }}>
+        <Box sx={{ display: "inline-block", width: "320px" }}>
           <Box id="title" sx={{ display: "flex", alignItems: "end" }}>
             <Typography
               fontFamily="Dela Gothic One"
-              fontSize="1.4rem"
+              fontSize="1.16rem"
               lineHeight="2.2rem"
               textAlign="left"
               sx={{ whiteSpace: "nowrap" }}
