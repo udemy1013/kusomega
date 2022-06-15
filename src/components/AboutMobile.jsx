@@ -78,7 +78,7 @@ function AboutMobile() {
                     lineHeight="1.3 rem"
                     sx={{ marginTop: ".5vh" }}
                     fontWeight="500"
-                    fontSize="10px"
+                    fontSize="0.75rem"
                   >
                     このNFTを手にする事で
                     <br />
@@ -177,7 +177,7 @@ function AboutMobile() {
                     letterSpacing=".1rem"
                     lineHeight="1.3 rem"
                     fontWeight="500"
-                    fontSize="10px"
+                    fontSize="0.75rem"
                   >
                     「NFTってそもそも何？」
                     <br />
@@ -258,7 +258,7 @@ function AboutMobile() {
                     lineHeight="1.3 rem"
                     sx={{ marginTop: "2rem" }}
                     fontWeight="500"
-                    fontSize="10px"
+                    fontSize="0.75rem"
                   >
                     NFTのコレクションではよくある
                     自動生成で大量にコレクションを創っていく手法は
@@ -363,7 +363,7 @@ function AboutMobile() {
                     lineHeight="1.3 rem"
                     sx={{ marginTop: "20px" }}
                     fontWeight="500"
-                    fontSize="10px"
+                    fontSize="0.75rem"
                   >
                     アイデアやきっかけ
                     <br />
