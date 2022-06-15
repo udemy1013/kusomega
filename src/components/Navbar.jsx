@@ -107,11 +107,7 @@ export class Navbar extends React.Component {
             <Link to="/team" className="linkText">
               <LinkTypography>開発チーム</LinkTypography>
             </Link>
-            <Link
-              to="#"
-              className="linkText"
-              xs={{ position: "relative", pointerEvents: "none" }}
-            >
+            <Link to="#" className="linkText">
               <Box sx={{ position: "relative" }}>
                 <Typography
                   sx={{
@@ -129,13 +125,25 @@ export class Navbar extends React.Component {
                 <LinkTypography>ショップ</LinkTypography>
               </Box>
             </Link>
-            <Link to="#" className="linkText">
+            <a
+              className="linkText"
+              style={{ padding: "2px 10px" }}
+              href="https://discord.gg/2Fe9WkV3"
+            >
               <Instagram sx={{ height: 18, paddingTop: "2px" }} />
-            </Link>
-            <Link className="linkText" sx={{ padding: "2px 10px" }} to="#">
+            </a>
+            <a
+              className="linkText"
+              style={{ padding: "2px 10px" }}
+              href="https://discord.gg/2Fe9WkV3"
+            >
               <Twitter sx={{ height: 18, paddingTop: "2px" }} />
-            </Link>
-            <Link className="linkText" sx={{ padding: "2px 10px" }} to="#">
+            </a>
+            <a
+              className="linkText"
+              style={{ padding: "2px 10px" }}
+              href="https://discord.gg/2Fe9WkV3"
+            >
               <StyledIcon sx={{ height: 18, paddingTop: "2px" }}>
                 <svg
                   id="レイヤー_1"
@@ -156,8 +164,12 @@ export class Navbar extends React.Component {
                   </g>
                 </svg>
               </StyledIcon>
-            </Link>
-            <Link className="linkText" sx={{ padding: "2px 10px" }} to="#">
+            </a>
+            <a
+              className="linkText"
+              style={{ padding: "2px 10px" }}
+              href="https://opensea.io/collection/kusomegane-collection"
+            >
               <StyledIcon sx={{ height: 18, paddingTop: "2px" }}>
                 <path
                   class="cls-1"
@@ -172,7 +184,7 @@ export class Navbar extends React.Component {
                   d="M19.83,13.31v.77a.09.09,0,0,1-.06.1,3.92,3.92,0,0,0-1.41,1c-.88,1.22-1.55,3-3,3H9.05a4,4,0,0,1-4-4V14a.11.11,0,0,1,.11-.11H8.63a.12.12,0,0,1,.12.13,1.12,1.12,0,0,0,.12.67,1.23,1.23,0,0,0,1.1.68H11.7V14.05H10a.11.11,0,0,1-.09-.18l.06-.09a9.85,9.85,0,0,0,.63-1c.15-.27.3-.56.43-.86l.06-.16c0-.09.07-.18.09-.27a1.87,1.87,0,0,0,.07-.22,4,4,0,0,0,.08-.79c0-.11,0-.22,0-.32s0-.24,0-.36,0-.2,0-.31a3.94,3.94,0,0,0-.1-.47V9c0-.1,0-.21-.09-.31-.1-.34-.21-.67-.33-1,0-.12-.09-.23-.14-.35s-.15-.34-.21-.49a1.86,1.86,0,0,1-.1-.2l-.1-.21-.07-.15-.21-.39s0-.12.07-.1l1.32.36h0l.18,0,.19,0,.07,0V5.49a.68.68,0,0,1,.68-.69.67.67,0,0,1,.67.69V6.65l.14,0h0l.14.12.17.13c.13.1.28.24.44.39l.13.12a9,9,0,0,1,.69.69c.06.07.12.15.19.22l.19.24a3.71,3.71,0,0,1,.23.32l.11.16a3.83,3.83,0,0,1,.25.44,1.36,1.36,0,0,1,.1.21,2.82,2.82,0,0,1,.2.6.31.31,0,0,1,0,.13h0a1.13,1.13,0,0,1,0,.18,1.85,1.85,0,0,1,0,.62,2.5,2.5,0,0,1-.07.26,2.6,2.6,0,0,1-.1.25,3.4,3.4,0,0,1-.26.5l-.12.18a1.4,1.4,0,0,1-.12.18c-.06.08-.11.16-.17.23l-.17.21-.24.27-.16.17-.16.17-.21.2-.13.12a.11.11,0,0,1-.08,0h-1v1.34h1.33a1.25,1.25,0,0,0,.8-.29,8.74,8.74,0,0,0,.82-.81l.05,0,3.65-1A.1.1,0,0,1,19.83,13.31Z"
                 />
               </StyledIcon>
-            </Link>
+            </a>
           </MenuDesktop>
           <MenuMobile className="md-block">
             <div class="hamburger-menu">
