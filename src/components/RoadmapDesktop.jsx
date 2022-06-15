@@ -2,8 +2,30 @@ import { React, useRef, useState, useCallback } from "react";
 import { Box, Grid, ThemeProvider, Typography } from "@mui/material";
 import "../css/style.css";
 import { createTheme } from "@mui/system";
-import { useSpring, animated, config } from "@react-spring/web";
-import useEmblaCarousel from "embla-carousel-react";
+import { animated } from "@react-spring/web";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "100%",
+  bgcolor: "backgorund.paper",
+  boxshadow: 24,
+  p: 4,
+};
+
+export const Modal = ({ src, alt, caption, onClose }) => {
+  return (
+    <div className="modal">
+      <span className="close" onClick={onClose}>
+        &times;
+      </span>
+      <img className="modal-content" src={src} alt={alt} />
+      {caption.length > 0 && <div className="caption">{caption}</div>}
+    </div>
+  );
+};
 
 const breakpoints = createTheme({
   breakpoints: {
@@ -47,32 +69,25 @@ const theme = createTheme({
 });
 
 function RoadmapDesktop() {
-  document.body.style.overflow = "hidden";
-  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [isOpen, setIsopen] = useState(false);
+  const [image, setImage] = useState();
+  const [isUnclickable, setUnclickable] = useState();
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-    changeDotsColor();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-    changeDotsColor();
-  }, [emblaApi]);
-
-  const [dotscolor, setdotscolor] = useState(["active_dot", ""]);
-
-  function changeDotsColor() {
-    var newColors = [];
-    var targetNum = emblaApi.slidesInView(true);
-
-    dotscolor.map((value, index) =>
-      index == targetNum ? newColors.push("active_dot") : newColors.push("")
-    );
-    console.log(targetNum[0].parseInt);
-    console.log(newColors);
-    setdotscolor(newColors);
+  function setModalImage(imageUrl) {
+    setImage(imageUrl);
   }
+
+  const handleOpen = () => {
+    setIsopen(true);
+    setUnclickable("unclickable");
+  };
+  function handleClose() {
+    setIsopen(false);
+    setUnclickable();
+    console.log("hello");
+  }
+
+  document.body.style.overflow = "hidden";
 
   const [animate1, setAnimate1] = useState("float");
   const [animate2, setAnimate2] = useState("float");
@@ -104,45 +119,11 @@ function RoadmapDesktop() {
     </Typography>
   );
 
-  function defaultTitle() {
-    setTitle(
-      <Typography variant="h1">
-        僕たちの夢は
-        <br />
-        日本一のDAO
-      </Typography>
-    );
-  }
-
-  // ホバーした時の透明度の変化
-  const [opacity, setOpacity] = useState([1, 1, 1, 1]);
-
-  function decreaseOpacity(event) {
-    var id = event.target.id;
-    var opacities = [0.5, 0.5, 0.5, 0.5];
-    opacities[id] = "100%";
-    setOpacity(opacities);
-  }
-
-  function resetOpacity() {
-    setOpacity([1, 1, 1, 1]);
-  }
-
   // アニメーション
-  const configList = Object.keys(config);
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const ref3 = useRef(null);
   const ref4 = useRef(null);
-  const [xys1, set1] = useState([0, 0, 1]);
-  const [xys2, set2] = useState([0, 0, 1]);
-  const [xys3, set3] = useState([0, 0, 1]);
-  const [xys4, set4] = useState([0, 0, 1]);
-
-  const props1 = useSpring({ xys1, config: config[configList] });
-  const props2 = useSpring({ xys2, config: config[configList] });
-  const props3 = useSpring({ xys3, config: config[configList] });
-  const props4 = useSpring({ xys4, config: config[configList] });
 
   return (
     <ThemeProvider theme={theme}>
@@ -152,11 +133,11 @@ function RoadmapDesktop() {
           container
           sx={{ marginTop: "3%", marginLeft: "20%" }}
         >
-          <Grid item xs={2} ref={ref1} sx={{ opacity: opacity[0] }}>
+          <Grid onClick={handleOpen} item xs={2} ref={ref1}>
             <animated.img
               id="0"
               width={"100%"}
-              src="https://i.ibb.co/cgnD8xk/left.png"
+              src="https://i.ibb.co/Jc5fp59/shop-junbi.png"
               className={animate1}
               onClick={(e) => {
                 setAnimate1("");
@@ -173,15 +154,18 @@ function RoadmapDesktop() {
                     ここでしか手に入らないもの
                   </Typography>
                 );
-
-                decreaseOpacity(e);
+                setModalImage("https://i.ibb.co/zhTxWHy/shop-Sketch.jpg");
               }}
             />
           </Grid>
           <Grid
             item
             xs={2}
-            sx={{ marginTop: "5vw", opacity: opacity[1] }}
+            onClick={(e) => {
+              handleOpen();
+              setModalImage("https://i.ibb.co/7vSP6D9/world-Sketch.jpg");
+            }}
+            sx={{ marginTop: "5vw" }}
             ref={ref2}
           >
             <animated.img
@@ -192,7 +176,6 @@ function RoadmapDesktop() {
               onClick={(e) => {
                 setAnimate2("");
                 setTitle(<Typography variant="h1">???</Typography>);
-                decreaseOpacity(e);
               }}
             />
           </Grid>
@@ -205,10 +188,13 @@ function RoadmapDesktop() {
             sx={{
               marginLeft: "-8%",
               marginTop: "8vw",
-              opacity: opacity[2],
               position: "relative",
             }}
             ref={ref3}
+            onClick={(e) => {
+              handleOpen();
+              setModalImage("https://i.ibb.co/GM1fgZr/gamesketch.jpg");
+            }}
           >
             <animated.img
               id="2"
@@ -218,15 +204,18 @@ function RoadmapDesktop() {
               onClick={(e) => {
                 setAnimate3("");
                 setTitle(<Typography variant="h1">GAME</Typography>);
-                decreaseOpacity(e);
               }}
             />
           </Grid>
           <Grid
             item
             xs={2}
-            sx={{ marginLeft: "6%", opacity: opacity[3], position: "relative" }}
+            sx={{ marginLeft: "6%", position: "relative" }}
             ref={ref4}
+            onClick={(e) => {
+              handleOpen();
+              setModalImage("https://i.ibb.co/23Zsdzc/promotion-Sketch.jpg");
+            }}
           >
             <animated.img
               id="3"
@@ -236,11 +225,14 @@ function RoadmapDesktop() {
               onClick={(e) => {
                 setTitle(<Typography variant="h1">BUSINESS</Typography>);
                 setAnimate4("");
-                decreaseOpacity(e);
+                setModalImage("https://i.ibb.co/23Zsdzc/promotion-Sketch.jpg");
               }}
             />
           </Grid>
         </Grid>
+        {isOpen && (
+          <Modal src={image} alt="snow" caption="" onClose={handleClose} />
+        )}
         <Grid container sx={{ position: "fixed", bottom: 0, width: "100%" }}>
           <Grid sx={{ width: "700px" }}>
             <Box

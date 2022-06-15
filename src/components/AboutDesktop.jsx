@@ -13,7 +13,7 @@ import { ArrowForward } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
 const ResponsiveContainer = styled(Container)({
-  marginTop: "250px",
+  marginTop: "280px",
   maxWidth: "1600px !important",
   marginLeft: "5rem",
 });

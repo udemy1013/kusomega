@@ -34,7 +34,7 @@ export const RoadmapWorld = () => {
   }
 
   return (
-    <Container sx={{ padding: "0 16px" }}>
+    <Container sx={{ padding: "0 16px", marginBottom: "3rem" }}>
       <Container
         component={motion.div}
         initial={{ y: "-100vh" }}
@@ -48,8 +48,8 @@ export const RoadmapWorld = () => {
         </Link>
         <Box class="image_container_park">
           <img
-            className="float"
-            src="https://i.ibb.co/f1NvJQw/left2.png"
+            className="dropshadow"
+            src="https://i.ibb.co/0mC6Cw7/sketch-world.png"
             width="80%"
           />
         </Box>
@@ -58,28 +58,34 @@ export const RoadmapWorld = () => {
         component={motion.div}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        padding={"0 20%"}
-        sx={{ marginTop: "10px" }}
+        width="80%"
+        sx={{ marginTop: "10px", margin: "0 auto" }}
       >
         <Box sx={{ display: "inline-block" }}>
-          <Box id="title">
+          <Box id="title" sx={{ display: "flex", alignItems: "end" }}>
             <Typography
               fontFamily="Dela Gothic One"
-              fontSize="2.5rem"
-              lineHeight="2.5rem"
-              textAlign="center"
+              fontSize="2.2rem"
+              lineHeight="2.2rem"
+              textAlign="left"
+              sx={{ whiteSpace: "nowrap" }}
             >
-              PARK
+              MEGA World
             </Typography>
-            <Typography
-              fontFamily="Noto Sans JP"
-              fontSize="1rem"
-              lineHeight="1rem"
-              textAlign="center"
-              fontWeight="500"
+            <Box
+              sx={{
+                backgroundColor: "red",
+                padding: "0rem 1rem",
+                marginLeft: ".5rem",
+                borderRadius: 1.2,
+                verticalAlign: "middle",
+                height: "1rem",
+                lineHeight: " 1rem",
+                whiteSpace: "nowrap",
+              }}
             >
-              コミュニティを育てる
-            </Typography>
+              <Typography fontSize="10px">準備中</Typography>
+            </Box>
           </Box>
           <Box id="discription">
             <Typography
@@ -91,193 +97,17 @@ export const RoadmapWorld = () => {
               fontWeight="300"
               transition={{ duration: 1.5 }}
             >
-              我々はKUSOMEGANEFRIENDSを世に広める活動を全力でサポートします。
+              独自の仮想世界を創り、バーチャル空間内での
               <br />
-              二次創作や収益かも承諾し、全てのアイディアを尊重し、挑む姿勢を全力でサポートできるようにコミュニティ活動、及び広告活動に力を注いでおります。
+              楽しみ方を模索し、実現します。
+              <br />
+              例えば誰もがデジタル作品を美術館のように展示し、
+              <br />
+              購入できる仮想世界内での施設を作ったり、独自通貨を発行しアバターの変更やレベルアップさせたりと、現実では行えないような
+              世界を皆で意見しあいながら創り上げていきます。
+              <br />
             </Typography>
           </Box>
-        </Box>
-      </Box>
-      <Grid
-        container
-        sx={{
-          justifyContent: "center",
-          marginTop: "3rem",
-          marginBottom: "1rem",
-        }}
-      >
-        <Grid item xs={2.4}>
-          <button
-            class="embla__button embla__button--prev"
-            onClick={() => {
-              scrollPrev();
-            }}
-          >
-            <svg
-              class="embla__button__svg"
-              viewBox="137.718 -1.001 366.563 643.999"
-            >
-              <path d="M428.36 12.5c16.67-16.67 43.76-16.67 60.42 0 16.67 16.67 16.67 43.76 0 60.42L241.7 320c148.25 148.24 230.61 230.6 247.08 247.08 16.67 16.66 16.67 43.75 0 60.42-16.67 16.66-43.76 16.67-60.42 0-27.72-27.71-249.45-249.37-277.16-277.08a42.308 42.308 0 0 1-12.48-30.34c0-11.1 4.1-22.05 12.48-30.42C206.63 234.23 400.64 40.21 428.36 12.5z"></path>
-            </svg>
-          </button>
-        </Grid>
-        <Grid item xs={7.2}>
-          <Box id="projects" className="embla" ref={emblaRef}>
-            <Box className="embla__container">
-              <Box
-                className="embla__slide"
-                onTouchEnd={changeDotsColor}
-                onClick={changeDotsColor}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    verticalAlign: "middle",
-                    marginBottom: ".5rem",
-                  }}
-                >
-                  <Typography
-                    fontFamily="Noto Sans JP"
-                    fontWeight="700"
-                    lineHeight="1rem"
-                  >
-                    #DAOの育成
-                  </Typography>
-                  <Box
-                    sx={{
-                      backgroundColor: "red",
-                      padding: "0rem 1rem",
-                      marginLeft: ".5rem",
-                      borderRadius: 1.2,
-                      verticalAlign: "middle",
-                      height: "1rem",
-                      lineHeight: " 1rem",
-                    }}
-                  >
-                    <Typography fontSize="10px">制作中</Typography>
-                  </Box>
-                </Box>
-                <Typography
-                  fontFamily="Noto Sans JP"
-                  textAlign="left"
-                  letterSpacing=".1rem"
-                  fontSize=".75rem"
-                  fontWeight="300"
-                >
-                  全てのプロジェクトの進行度、概要、プロジェクトの詳細が確認できます。
-                </Typography>
-              </Box>
-              <Box
-                className="embla__slide"
-                onTouchEnd={changeDotsColor}
-                onClick={changeDotsColor}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    verticalAlign: "middle",
-                    marginBottom: ".5rem",
-                  }}
-                >
-                  <Typography
-                    fontFamily="Noto Sans JP"
-                    fontWeight="700"
-                    fontSize="1rem"
-                    lineHeight="1rem"
-                  >
-                    #メタバース
-                  </Typography>
-                  <Box
-                    sx={{
-                      backgroundColor: "#313131",
-                      padding: "0rem 1rem",
-                      marginLeft: ".5rem",
-                      borderRadius: 1.2,
-                      verticalAlign: "middle",
-                      height: "1rem",
-                      lineHeight: " 1rem",
-                    }}
-                  >
-                    <Typography fontSize="10px">準備中</Typography>
-                  </Box>
-                </Box>
-                <Typography
-                  fontFamily="Noto Sans JP"
-                  textAlign="left"
-                  letterSpacing=".1rem"
-                  fontSize=".75rem"
-                  fontWeight="100"
-                >
-                  プロジェクトで発生した収益を安心して受け取れるシステムを提供します。
-                </Typography>
-              </Box>
-              <Box
-                className="embla__slide"
-                onTouchEnd={changeDotsColor}
-                onClick={changeDotsColor}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    verticalAlign: "middle",
-                  }}
-                >
-                  <Typography
-                    fontFamily="Noto Sans JP"
-                    fontSize="1rem"
-                    lineHeight="1rem"
-                    fontWeight="700"
-                  >
-                    #イベントetc...
-                  </Typography>
-                  <Box
-                    sx={{
-                      backgroundColor: "#313131",
-                      padding: "0rem 1rem",
-                      marginLeft: ".5rem",
-                      borderRadius: 1.2,
-                      verticalAlign: "middle",
-                      height: "1rem",
-                      lineHeight: " 1rem",
-                    }}
-                  >
-                    <Typography fontSize="10px">準備中</Typography>
-                  </Box>
-                </Box>
-                <Typography
-                  fontFamily="Noto Sans JP"
-                  textAlign="left"
-                  letterSpacing=".1rem"
-                  fontSize=".75rem"
-                  fontWeight="100"
-                >
-                  プロジェクトに必要な資金をNFTのロイヤリティ売上から排出します。
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid xs={2.4}>
-          <button
-            class="embla__button embla__button--next"
-            onClick={() => {
-              scrollNext();
-            }}
-          >
-            <svg class="embla__button__svg" viewBox="0 0 238.003 238.003">
-              <path d="M181.776 107.719L78.705 4.648c-6.198-6.198-16.273-6.198-22.47 0s-6.198 16.273 0 22.47l91.883 91.883-91.883 91.883c-6.198 6.198-6.198 16.273 0 22.47s16.273 6.198 22.47 0l103.071-103.039a15.741 15.741 0 0 0 4.64-11.283c0-4.13-1.526-8.199-4.64-11.313z"></path>
-            </svg>
-          </button>
-        </Grid>
-      </Grid>
-      <Box sx={{ textAlign: "center" }}>
-        <Box
-          id="dots"
-          container
-          sx={{ width: "30%", display: "inline-block", paddingTop: "2px" }}
-        >
-          <Box className={dotscolor[0]}></Box>
-          <Box className={dotscolor[1]}></Box>
         </Box>
       </Box>
     </Container>

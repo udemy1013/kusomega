@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 function RoadmapMobile() {
   const islands = [
-    "https://i.ibb.co/cgnD8xk/left.png",
+    "https://i.ibb.co/Jc5fp59/shop-junbi.png",
     "https://i.ibb.co/drGL7Dv/bussi-junbi.png",
     "https://i.ibb.co/prNqzB1/park-junbi.png",
     "https://i.ibb.co/xgGdL32/asobi-junbi.png",
@@ -97,7 +97,7 @@ function RoadmapMobile() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "-100vh" }}
             transition={{ duration: 1 }}
-            src="https://i.ibb.co/XLMGBd1/main.png"
+            src="https://i.ibb.co/NmS2btf/main.png"
             className="mainImg"
           />
         </Grid>

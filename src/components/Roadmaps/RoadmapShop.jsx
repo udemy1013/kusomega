@@ -34,7 +34,7 @@ export const RoadmapShop = () => {
   }
 
   return (
-    <Container sx={{ padding: "0 16px" }}>
+    <Container sx={{ padding: "0 16px", marginBottom: "3rem" }}>
       <Container
         component={motion.div}
         initial={{ y: "-100vh" }}
@@ -46,11 +46,11 @@ export const RoadmapShop = () => {
         <Link to="/roadmap" align="left" style={{ display: "block" }}>
           <ArrowBack />
         </Link>
-        <Box class="image_container" sx={{ margin: "2vw 0" }}>
+        <Box class="image_container_park">
           <img
-            className="float"
-            src="	https://i.ibb.co/cgnD8xk/left.png"
-            width={"90%"}
+            className="dropshadow"
+            src="https://i.ibb.co/SnQmJdk/sketch-shop.png"
+            width="80%"
           />
         </Box>
       </Container>
@@ -58,29 +58,34 @@ export const RoadmapShop = () => {
         component={motion.div}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        padding={"0 20%"}
-        sx={{ marginTop: "20vw", marginBot: "3rem" }}
+        width="80%"
+        sx={{ marginTop: "10px", margin: "0 auto" }}
       >
         <Box sx={{ display: "inline-block" }}>
-          <Box id="title">
+          <Box id="title" sx={{ display: "flex", alignItems: "end" }}>
             <Typography
               fontFamily="Dela Gothic One"
-              fontSize="2.5rem"
-              lineHeight="2.5rem"
-              textAlign="center"
+              fontSize="2rem"
+              lineHeight="2.2rem"
+              textAlign="left"
+              sx={{ whiteSpace: "nowrap" }}
             >
-              SHOP
+              KUSOMEGANE
             </Typography>
-            <Typography
-              fontFamily="Noto Sans JP"
-              fontSize="1rem"
-              lineHeight="1rem"
-              textAlign="center"
-              fontWeight="500"
-              sx={{ whiteSpace: "nowrap", overflow: " hidden" }}
+            <Box
+              sx={{
+                backgroundColor: "red",
+                padding: "0rem .7rem",
+                marginLeft: ".5rem",
+                borderRadius: 1.2,
+                verticalAlign: "middle",
+                height: "1rem",
+                lineHeight: " 1rem",
+                whiteSpace: "nowrap",
+              }}
             >
-              ここでしか手に入らないもの
-            </Typography>
+              <Typography fontSize="10px">準備中</Typography>
+            </Box>
           </Box>
           <Box id="discription">
             <Typography
@@ -92,148 +97,12 @@ export const RoadmapShop = () => {
               fontWeight="300"
               transition={{ duration: 1.5 }}
             >
-              KUSOMEGANEFRIENDSは仮想世界にとどまらず現実世界へも進出していきます。見るだけで誰もが笑顔になれる。そんな商品を僕らは作っていきます。
+              NFTartを利用した現実世界でのプロダクト商品の限定販売を行います。<br/><br/>
+              NFTを購入すると商品と引き換えできるチケット（別途NFT）が無料で手に入ります。チケットは数種類からランダムで手に入るため、希少性が高く、コンプリートも難易度が高い仕様になりますが、新しくてわくわくするショップの在り方を研究し、創り上げていきます。
+
+              <br />
             </Typography>
           </Box>
-        </Box>
-      </Box>
-      <Grid container sx={{ justifyContent: "center", marginTop: "4.7rem" }}>
-        <Grid item xs={2.4}>
-          <button
-            class="embla__button embla__button--prev"
-            onClick={() => {
-              scrollPrev();
-            }}
-          >
-            <svg
-              class="embla__button__svg"
-              viewBox="137.718 -1.001 366.563 643.999"
-            >
-              <path d="M428.36 12.5c16.67-16.67 43.76-16.67 60.42 0 16.67 16.67 16.67 43.76 0 60.42L241.7 320c148.25 148.24 230.61 230.6 247.08 247.08 16.67 16.66 16.67 43.75 0 60.42-16.67 16.66-43.76 16.67-60.42 0-27.72-27.71-249.45-249.37-277.16-277.08a42.308 42.308 0 0 1-12.48-30.34c0-11.1 4.1-22.05 12.48-30.42C206.63 234.23 400.64 40.21 428.36 12.5z"></path>
-            </svg>
-          </button>
-        </Grid>
-        <Grid item xs={7.2}>
-          <Box id="projects" className="embla" ref={emblaRef}>
-            <Box className="embla__container">
-              <Box
-                className="embla__slide"
-                onTouchEnd={changeDotsColor}
-                onClick={changeDotsColor}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    verticalAlign: "middle",
-                    marginBottom: ".5rem",
-                  }}
-                >
-                  <Typography
-                    fontFamily="Noto Sans JP"
-                    fontWeight="700"
-                    lineHeight="1rem"
-                    sx={{ whiteSpace: "nowrap", overflow: " hidden" }}
-                  >
-                    #オンラインストア
-                  </Typography>
-                  <Box
-                    sx={{
-                      backgroundColor: "red",
-                      padding: "0rem 1rem",
-                      marginLeft: ".5rem",
-                      borderRadius: 1.2,
-                      verticalAlign: "middle",
-                      height: "1rem",
-                      lineHeight: " 1rem",
-                      whiteSpace: "nowrap",
-                      overflow: " hidden",
-                    }}
-                  >
-                    <Typography fontSize="10px">制作中</Typography>
-                  </Box>
-                </Box>
-                <Typography
-                  fontFamily="Noto Sans JP"
-                  textAlign="left"
-                  letterSpacing=".1rem"
-                  fontSize=".75rem"
-                  fontWeight="300"
-                >
-                  フレンズが現実世界に迷い込んだ!?
-                </Typography>
-              </Box>
-              <Box
-                className="embla__slide"
-                onTouchEnd={changeDotsColor}
-                onClick={changeDotsColor}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    verticalAlign: "middle",
-                    marginBottom: ".5rem",
-                  }}
-                >
-                  <Typography
-                    fontFamily="Noto Sans JP"
-                    fontWeight="700"
-                    fontSize="1rem"
-                    lineHeight="1rem"
-                  >
-                    #販売アプローチ
-                    <br />
-                    &nbsp;&nbsp;商品開発
-                  </Typography>
-                  <Box
-                    sx={{
-                      backgroundColor: "#313131",
-                      padding: "0rem 1rem",
-                      marginLeft: ".5rem",
-                      borderRadius: 1.2,
-                      verticalAlign: "middle",
-                      height: "1rem",
-                      lineHeight: " 1rem",
-                      whiteSpace: "nowrap",
-                      overflow: " hidden",
-                    }}
-                  >
-                    <Typography fontSize="10px">準備中</Typography>
-                  </Box>
-                </Box>
-                <Typography
-                  fontFamily="Noto Sans JP"
-                  textAlign="left"
-                  letterSpacing=".1rem"
-                  fontSize=".75rem"
-                  fontWeight="300"
-                >
-                  フレンズが作った商品の販売経路の確保。商品開発の支援を行います。
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid xs={2.4}>
-          <button
-            class="embla__button embla__button--next"
-            onClick={() => {
-              scrollNext();
-            }}
-          >
-            <svg class="embla__button__svg" viewBox="0 0 238.003 238.003">
-              <path d="M181.776 107.719L78.705 4.648c-6.198-6.198-16.273-6.198-22.47 0s-6.198 16.273 0 22.47l91.883 91.883-91.883 91.883c-6.198 6.198-6.198 16.273 0 22.47s16.273 6.198 22.47 0l103.071-103.039a15.741 15.741 0 0 0 4.64-11.283c0-4.13-1.526-8.199-4.64-11.313z"></path>
-            </svg>
-          </button>
-        </Grid>
-      </Grid>
-      <Box sx={{ textAlign: "center" }}>
-        <Box
-          id="dots"
-          container
-          sx={{ width: "30%", display: "inline-block", paddingTop: "5px" }}
-        >
-          <Box className={dotscolor[0]}></Box>
-          <Box className={dotscolor[1]}></Box>
         </Box>
       </Box>
     </Container>
