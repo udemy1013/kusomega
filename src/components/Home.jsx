@@ -14,6 +14,26 @@ const StyledLink = styled(Link)(({ theme }) => ({
   color: "#2d2d2d",
 }));
 
+function getSecondsToTomorrow20() {
+  let now = new Date();
+  let tomorrow;
+  if (now.getHours() > 20) {
+    tomorrow = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() + 1,
+      20
+    );
+    console.log(tomorrow);
+  } else {
+    tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20);
+    console.log(tomorrow);
+  }
+  // tomorrow date
+
+  return tomorrow;
+}
+
 function Home() {
   document.body.style.overflow = "hidden";
 
@@ -93,7 +113,10 @@ function Home() {
                     paddingBottom: "10px",
                   }}
                 >
-                  <Countdown date={Date.now() + 86400000} />
+                  <Countdown
+                    daysInHours={true}
+                    date={getSecondsToTomorrow20()}
+                  />
                 </Typography>
               </Typography>
             </Box>
@@ -215,7 +238,10 @@ function Home() {
                     paddingBottom: "10px",
                   }}
                 >
-                  <Countdown date={Date.now() + 86400000} />
+                  <Countdown
+                    date={getSecondsToTomorrow20()}
+                    daysInHours={true}
+                  />
                 </Typography>
               </Typography>
             </Box>

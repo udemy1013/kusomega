@@ -217,6 +217,8 @@ function AboutDesktop() {
               </Typography>
               <Box sx={{ float: "right" }}>
                 <Button
+                  component={Link}
+                  href="https://www.instagram.com/crypto.wonkey/"
                   sx={{
                     borderRadius: "20px",
                     backgroundColor: "#FFBA01",
